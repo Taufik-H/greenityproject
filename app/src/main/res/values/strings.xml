@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">greetiny</string>
+    <string name="text_login">Login</string>
+</resources>

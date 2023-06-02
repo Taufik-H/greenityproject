@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "843000764630",
+    "project_id": "luminousgreetiny",
+    "storage_bucket": "luminousgreetiny.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843000764630:android:3d5a326a2e8312e90bd177",
+        "android_client_info": {
+          "package_name": "project.greetiny"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843000764630-sq7fk0afn58ujd76f8050700hukr32bs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgF-5TjrUbafOIp_fyFXZojPdPe76Z2ls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843000764630-sq7fk0afn58ujd76f8050700hukr32bs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

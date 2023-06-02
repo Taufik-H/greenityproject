@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:scrollbarSize="0dp"
+    android:layout_marginHorizontal="30dp"
+    tools:context=".auth.SignInActivity">
+        <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="30dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/g_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:src="@drawable/g_icon" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <RelativeLayout
+                android:layout_below="@id/logo"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Regist"
+                    android:fontFamily="@font/poppinsblack"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="5dp"
+                    android:textColor="@color/primaryText"
+                    android:textSize="40dp"/>
+                <RelativeLayout
+                    android:id="@+id/textRegist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textLogin">
+                    <TextView
+                        android:id="@+id/textBelumPunyaAkun"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Belum punya akun?"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"/>
+                    <TextView
+                        android:id="@+id/textRegistrasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Registrasi"
+                        android:layout_toEndOf="@id/textBelumPunyaAkun"
+                        android:layout_alignBaseline="@id/textBelumPunyaAkun"
+                        android:textColor="@color/blue"
+                        android:clickable="true" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/bacot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textRegist"
+                    android:fontFamily="@font/poppinsreguler"
+                    android:textColor="@color/primaryText"
+                    android:padding="5dp"
+                    android:textSize="16dp"
+                    android:text="Greetiny adalah sebuah aplikasi untuk berbagi kartu ucapan dengan lebih elegan"/>
+                <RelativeLayout
+                    android:layout_below="@id/bacot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/textEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="8dp" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/email"
+                        android:layout_marginVertical="5dp"
+                        android:layout_below="@id/textEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp"
+                        android:backgroundTint="@color/inactive">
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:hint="masukan email"
+                            android:textColorHint="@color/lightSlate"
+                            android:paddingHorizontal="20dp"
+                            android:background="@color/transparent"/>
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/textPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Password"
+                        android:layout_marginBottom="5dp"
+                        android:layout_below="@id/email"
+                        android:layout_alignParentStart="true"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/password"
+                        app:cardElevation="0dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_below="@id/textPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="10dp"
+                        android:backgroundTint="@color/inactive">
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:hint="masukan password"
+                            android:textColorHint="@color/lightSlate"
+                            android:paddingHorizontal="20dp"
+                            android:background="@color/transparent" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/textRePassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Repeat Password"
+                        android:layout_marginBottom="5dp"
+                        android:layout_below="@id/password"
+                        android:layout_alignParentStart="true"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/repassword"
+                        app:cardElevation="0dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_below="@id/textRePassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:cardCornerRadius="10dp"
+                        android:backgroundTint="@color/inactive">
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:hint="masukan password"
+                            android:textColorHint="@color/lightSlate"
+                            android:paddingHorizontal="20dp"
+                            android:background="@color/transparent" />
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnLoginCard"
+                        android:layout_below="@id/repassword"
+                        android:layout_marginTop="10dp"
+                        android:clickable="true"
+                        android:layout_marginVertical="15dp"
+                        android:layout_width="match_parent"
+                        app:cardBackgroundColor="@color/blue"
+                        app:cardCornerRadius="10dp"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center|center_vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Registrasi"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/poppinsreguler"
+                                android:paddingStart="8dp"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:layout_below="@id/btnLoginCard"
+                        android:id="@+id/loginCepat"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/leftLine"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/darkSlate" />
+
+                        <TextView
+                            android:id="@+id/textOr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="atau"
+                            android:background="@android:color/white"
+                            android:padding="4dp"
+                            android:layout_gravity="center_horizontal" />
+
+                        <View
+                            android:id="@+id/rightLine"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1"
+                            android:background="@color/darkSlate" />
+
+                    </LinearLayout>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnGoogleWrapper"
+                        android:layout_below="@id/loginCepat"
+                        android:layout_marginTop="10dp"
+                        android:clickable="true"
+                        android:layout_marginVertical="15dp"
+                        android:layout_width="match_parent"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="60dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center|center_vertical">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/google"
+                                android:contentDescription="google.png" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Regist with Google"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/poppinsreguler"
+                                android:paddingStart="8dp"
+                                android:textColor="@color/white"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </RelativeLayout>
+
+</ScrollView>
