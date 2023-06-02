@@ -15,22 +15,22 @@
         android:layout_height="match_parent"/>
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         app:cardCornerRadius="20dp"
         android:elevation="5dp"
         android:translationZ="10dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="20dp">
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginVertical="5dp">
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/buttonNav"
             android:layout_width="match_parent"
-
+            app:labelVisibilityMode="unlabeled"
             android:backgroundTint="@color/white"
             app:itemIconTint="@color/color_item_button"
             app:itemTextColor="@color/color_item_button"
             app:menu="@menu/menu_button_nav"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
     </androidx.cardview.widget.CardView>
 
 
