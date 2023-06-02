@@ -150,7 +150,10 @@
                             android:backgroundTint="@color/lightSlate">
 
                             <!-- Card 1 Content -->
-
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/ulangtahun"/>
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
@@ -162,7 +165,10 @@
                             android:backgroundTint="@color/lightSlate">
 
                             <!-- Card 2 Content -->
-
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/kelulusan"/>
                         </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
 
@@ -185,7 +191,10 @@
                             android:backgroundTint="@color/lightSlate">
 
                             <!-- Card 3 Content -->
-
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/nikahan"/>
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
@@ -197,7 +206,10 @@
                             android:backgroundTint="@color/lightSlate">
 
                             <!-- Card 4 Content -->
-
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/valentine"/>
                         </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
 
@@ -220,7 +232,10 @@
                             >
 
                             <!-- Card 5 Content -->
-
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/tahunbaru"/>
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
@@ -232,7 +247,10 @@
                             android:backgroundTint="@color/lightSlate">
 
                             <!-- Card 6 Content -->
-
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/hariraya"/>
                         </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
                 </RelativeLayout>
