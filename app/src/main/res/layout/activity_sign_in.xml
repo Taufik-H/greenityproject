@@ -89,6 +89,7 @@
                             app:cardElevation="0dp"
                             android:backgroundTint="@color/inactive">
                             <EditText
+                                android:id="@+id/et_email"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
@@ -120,6 +121,7 @@
                             android:backgroundTint="@color/inactive">
 
                             <EditText
+                                android:id="@+id/et_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
@@ -141,6 +143,7 @@
                             android:layout_height="60dp">
 
                             <LinearLayout
+                                android:id="@+id/btn_login"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
