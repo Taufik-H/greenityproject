@@ -36,7 +36,7 @@ public class SignInActivity extends AppCompatActivity {
     private String getEmail, getPassword;
     private LinearLayout btnLogin;
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
