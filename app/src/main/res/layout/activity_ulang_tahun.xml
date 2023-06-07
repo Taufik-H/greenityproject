@@ -104,7 +104,7 @@
                 app:cardElevation="0dp"
                 android:backgroundTint="@color/inactive">
                 <EditText
-                    android:id="@+id/ed_regist_email"
+                    android:id="@+id/ed_subject"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
@@ -133,7 +133,7 @@
                 app:cardCornerRadius="10dp"
                 android:backgroundTint="@color/inactive">
                 <EditText
-                    android:id="@+id/ed_regist_passwd"
+                    android:id="@+id/ed_object"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
@@ -191,6 +191,7 @@
                 app:cardCornerRadius="10dp"
                 android:backgroundTint="@color/inactive">
                 <EditText
+                    android:id="@+id/ed_ucapan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
