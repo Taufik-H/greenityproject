@@ -146,29 +146,67 @@
                             android:layout_width="175dp"
                             android:layout_height="200dp"
                             android:layout_margin="5dp"
-                            app:cardCornerRadius="20dp"
-                            android:backgroundTint="@color/lightSlate">
 
+                            android:clickable="true"
+                            app:cardElevation="0dp"
+                            android:backgroundTint="@color/lightSlate"
+                            app:cardCornerRadius="20dp">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                app:cardCornerRadius="55dp"
+                                android:layout_margin="10dp"
+                                android:paddingVertical="10dp"
+                                app:cardElevation="0.1sp"
+                                >
+                                <TextView
+
+                                    android:gravity="center_vertical"
+                                    android:layout_width="match_parent"
+
+                                    android:paddingHorizontal="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:layout_height="match_parent"
+                                    android:text="Ulang Tahun"/>
+                            </com.google.android.material.card.MaterialCardView>
                             <!-- Card 1 Content -->
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/ulangtahun"/>
+                                android:background="@drawable/ulangtahun" />
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/card2"
+                            android:clickable="true"
                             android:layout_width="175dp"
                             android:layout_height="200dp"
                             android:layout_margin="5dp"
-                            app:cardCornerRadius="20dp"
-                            android:backgroundTint="@color/lightSlate">
+                            android:backgroundTint="@color/lightSlate"
+                            app:cardCornerRadius="20dp">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                app:cardCornerRadius="55dp"
+                                android:layout_margin="10dp"
+                                android:paddingVertical="10dp"
+                                app:cardElevation="0.1sp"
+                                >
+                                <TextView
 
+                                    android:gravity="center_vertical"
+                                    android:layout_width="match_parent"
+
+                                    android:paddingHorizontal="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:layout_height="match_parent"
+                                    android:text="Kelulusan"/>
+                            </com.google.android.material.card.MaterialCardView>
                             <!-- Card 2 Content -->
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/kelulusan"/>
+                                android:background="@drawable/kelulusan" />
                         </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
 
@@ -184,12 +222,30 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/card3"
+                            android:clickable="true"
                             android:layout_width="175dp"
                             android:layout_height="200dp"
                             android:layout_margin="5dp"
                             app:cardCornerRadius="20dp"
                             android:backgroundTint="@color/lightSlate">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                app:cardCornerRadius="55dp"
+                                android:layout_margin="10dp"
+                                android:paddingVertical="10dp"
+                                app:cardElevation="0.1sp"
+                                >
+                                <TextView
 
+                                    android:gravity="center_vertical"
+                                    android:layout_width="match_parent"
+
+                                    android:paddingHorizontal="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:layout_height="match_parent"
+                                    android:text="Nikahan"/>
+                            </com.google.android.material.card.MaterialCardView>
                             <!-- Card 3 Content -->
                             <ImageView
                                 android:layout_width="match_parent"
@@ -199,12 +255,30 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/card4"
+                            android:clickable="true"
                             android:layout_width="175dp"
                             android:layout_height="200dp"
                             android:layout_margin="5dp"
                             app:cardCornerRadius="20dp"
                             android:backgroundTint="@color/lightSlate">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                app:cardCornerRadius="55dp"
+                                android:layout_margin="10dp"
+                                android:paddingVertical="10dp"
+                                app:cardElevation="0.1sp"
+                                >
+                                <TextView
 
+                                    android:gravity="center_vertical"
+                                    android:layout_width="match_parent"
+
+                                    android:paddingHorizontal="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:layout_height="match_parent"
+                                    android:text="Valentine"/>
+                            </com.google.android.material.card.MaterialCardView>
                             <!-- Card 4 Content -->
                             <ImageView
                                 android:layout_width="match_parent"
@@ -224,13 +298,31 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/card5"
+                            android:clickable="true"
                             android:layout_width="175dp"
                             android:layout_height="200dp"
                             android:layout_margin="5dp"
                             app:cardCornerRadius="20dp"
                             android:backgroundTint="@color/lightSlate"
                             >
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                app:cardCornerRadius="55dp"
+                                android:layout_margin="10dp"
+                                android:paddingVertical="10dp"
+                                app:cardElevation="0.1sp"
+                                >
+                                <TextView
 
+                                    android:gravity="center_vertical"
+                                    android:layout_width="match_parent"
+
+                                    android:paddingHorizontal="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:layout_height="match_parent"
+                                    android:text="Tahun Baru"/>
+                            </com.google.android.material.card.MaterialCardView>
                             <!-- Card 5 Content -->
                             <ImageView
                                 android:layout_width="match_parent"
@@ -240,12 +332,30 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/card6"
+                            android:clickable="true"
                             android:layout_width="175dp"
                             android:layout_height="200dp"
                             android:layout_margin="5dp"
                             app:cardCornerRadius="20dp"
                             android:backgroundTint="@color/lightSlate">
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                app:cardCornerRadius="55dp"
+                                android:layout_margin="10dp"
+                                android:paddingVertical="10dp"
+                                app:cardElevation="0.1sp"
+                                >
+                                <TextView
 
+                                    android:gravity="center_vertical"
+                                    android:layout_width="match_parent"
+
+                                    android:paddingHorizontal="10dp"
+                                    android:fontFamily="@font/poppinsbold"
+                                    android:layout_height="match_parent"
+                                    android:text="Hari Raya"/>
+                            </com.google.android.material.card.MaterialCardView>
                             <!-- Card 6 Content -->
                             <ImageView
                                 android:layout_width="match_parent"

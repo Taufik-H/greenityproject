@@ -14,4 +14,10 @@
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">true</item>
     </style>
+    <style name="Theme.Greetiny.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Greetiny.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Greetiny.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

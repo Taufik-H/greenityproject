@@ -12,13 +12,19 @@
         android:theme="@style/Theme.Greetiny"
         tools:targetApi="31">
         <activity
+            android:name=".ucapan.UlangTahun"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.SignInActivity"
             android:exported="false" />
         <activity
             android:name=".auth.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
