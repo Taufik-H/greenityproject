@@ -14,7 +14,6 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //menghilangkan ActionBar
 
         setContentView(R.layout.activity_splash_screen);
 
