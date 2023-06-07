@@ -14,7 +14,9 @@
         android:id="@+id/helloUser"
         android:layout_marginBottom="30dp"
         android:layout_height="wrap_content">
-        <include layout="@layout/navigation"/>
+        <include layout="@layout/navigation"
+            android:id="@+id/included_layout"
+            />
     </RelativeLayout>
     <LinearLayout
         android:layout_below="@+id/helloUser"
