@@ -56,14 +56,14 @@
                         android:id="@+id/textBelumPunyaAkun"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Belum punya akun?"
+                        android:text="Sudah punya akun?"
                         android:layout_centerVertical="true"
                         android:layout_alignParentStart="true"/>
                     <TextView
                         android:id="@+id/textRegistrasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Registrasi"
+                        android:text="Signin"
                         android:layout_toEndOf="@id/textBelumPunyaAkun"
                         android:layout_alignBaseline="@id/textBelumPunyaAkun"
                         android:textColor="@color/blue"
@@ -103,6 +103,7 @@
                         app:cardElevation="0dp"
                         android:backgroundTint="@color/inactive">
                         <EditText
+                            android:id="@+id/ed_regist_email"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_vertical"
@@ -131,6 +132,7 @@
                         app:cardCornerRadius="10dp"
                         android:backgroundTint="@color/inactive">
                         <EditText
+                            android:id="@+id/ed_regist_passwd"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_vertical"
@@ -179,6 +181,7 @@
                         android:layout_height="60dp">
 
                         <LinearLayout
+                            android:id="@+id/btn_signup"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal"
@@ -240,6 +243,7 @@
                         android:layout_marginBottom="20dp"
                         android:layout_height="60dp">
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal"
@@ -260,6 +264,7 @@
                                 android:textSize="15dp" />
 
                         </LinearLayout>
+
 
                     </com.google.android.material.card.MaterialCardView>
 
