@@ -1,14 +1,20 @@
 package project.greetiny.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.card.MaterialCardView;
+
 import project.greetiny.R;
+import project.greetiny.ucapan.UlangTahun;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,19 @@ import project.greetiny.R;
  * create an instance of this fragment.
  */
 public class FragmentHome extends Fragment {
+    private MaterialCardView card1;
+
+
+
+
+
+
+
+
+
+
+
+    //default code
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,11 +75,21 @@ public class FragmentHome extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        card1 = view.findViewById(R.id.card1);
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UlangTahun.class);
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
+
 }
