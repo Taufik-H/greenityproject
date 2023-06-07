@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 pagerMain;
     ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
     BottomNavigationView buttonNav;
-
+    FirebaseAuth mAuth;
+    com.google.android.material.card.MaterialCardView card1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentArrayList.add(new FragmentHome());
         fragmentArrayList.add(new FragmentList());
         fragmentArrayList.add(new fragmentSetting());
-
 
         AdapterViewPager adapterViewPager = new AdapterViewPager(this,fragmentArrayList);
         pagerMain.setAdapter(adapterViewPager);
@@ -72,5 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
 }

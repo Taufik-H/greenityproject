@@ -10,7 +10,7 @@
     tools:context=".ucapan.UlangTahun">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <TextView
             android:id="@+id/textHeadline"
             android:layout_width="match_parent"
@@ -103,15 +103,16 @@
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
                 android:backgroundTint="@color/inactive">
+
                 <EditText
                     android:id="@+id/ed_subject"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="100dp"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
                     android:hint="masukan nama pengirim ucapan"
-                    android:textColorHint="@color/lightSlate"
                     android:paddingHorizontal="20dp"
-                    android:background="@color/transparent"/>
+                    android:textColorHint="@color/lightSlate" />
             </com.google.android.material.card.MaterialCardView>
             <TextView
                 android:id="@+id/textObject"

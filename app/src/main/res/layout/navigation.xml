@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/navigation"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Logout"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
 
@@ -26,14 +28,17 @@
                 android:textSize="12dp" />
 
             <com.google.android.material.card.MaterialCardView
+                android:clickable="true"
                 android:layout_width="40dp"
                 android:layout_centerInParent="true"
                 android:layout_height="40dp"
                 app:cardCornerRadius="50dp"
                 android:layout_alignParentEnd="true"
+                android:id="@+id/profile"
 
                 >
                 <ImageView
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
