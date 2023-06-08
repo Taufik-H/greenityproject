@@ -16,10 +16,13 @@ import android.widget.RelativeLayout;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 
-import project.greetiny.MainActivity;
 import project.greetiny.R;
-import project.greetiny.auth.SignInActivity;
+import project.greetiny.ucapan.HariRaya;
+import project.greetiny.ucapan.Kelulusan;
+import project.greetiny.ucapan.Nikahan;
+import project.greetiny.ucapan.TahunBaru;
 import project.greetiny.ucapan.UlangTahun;
+import project.greetiny.ucapan.Valentine;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +31,11 @@ import project.greetiny.ucapan.UlangTahun;
  */
 public class FragmentHome extends Fragment {
     private MaterialCardView card1;
+    private MaterialCardView card2;
+    private MaterialCardView card3;
+    private MaterialCardView card4;
+    private MaterialCardView card5;
+    private MaterialCardView card6;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,6 +89,51 @@ public class FragmentHome extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), UlangTahun.class);
+                startActivity(intent);
+            }
+        });
+        //card 2 Kelulusan
+        card2 = view.findViewById(R.id.card2);
+        card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Kelulusan.class);
+                startActivity(intent);
+            }
+        });
+        //card 3 Nikahan
+        card3 = view.findViewById(R.id.card3);
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Nikahan.class);
+                startActivity(intent);
+            }
+        });
+        //card 4 Valentine
+        card4 = view.findViewById(R.id.card4);
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Valentine.class);
+                startActivity(intent);
+            }
+        });
+        //card 5 TahunBaru
+        card5 = view.findViewById(R.id.card5);
+        card5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TahunBaru.class);
+                startActivity(intent);
+            }
+        });
+        //card 6 HariRaya
+        card6 = view.findViewById(R.id.card6);
+        card6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HariRaya.class);
                 startActivity(intent);
             }
         });
