@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarSize="0dp"
+    android:layout_marginHorizontal="30dp"
+    tools:context=".ucapan.TahunBaru">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textHeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masukan Ucapan Tahun Baru"
+            android:fontFamily="@font/poppinsblack"
+            android:textStyle="bold"
+            android:layout_marginVertical="5dp"
+            android:textColor="@color/primaryText"
+            android:textSize="40dp"/>
+
+        <RelativeLayout
+            android:id="@+id/getfotolayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textHeadline"
+            android:layout_gravity="right"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/foto"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Foto"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/imageContainer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/foto"
+                android:layout_gravity="center"
+                android:background="@drawable/border"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnGetFotoCard"
+                android:layout_below="@id/imageContainer"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:layout_marginVertical="15dp"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="10dp"
+                android:layout_height="30dp">
+                <LinearLayout
+                    android:id="@+id/btn_getfoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center|center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pilih Foto"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/poppinsreguler"
+                        android:paddingStart="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/getfotolayout">
+            <TextView
+                android:id="@+id/textSubject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subject"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="8dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/subject"
+                android:layout_marginVertical="5dp"
+                android:layout_below="@id/textSubject"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                android:backgroundTint="@color/inactive">
+
+                <EditText
+                    android:id="@+id/ed_subject"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
+                    android:hint="masukan nama pengirim ucapan"
+                    android:paddingHorizontal="20dp"
+                    android:textColorHint="@color/lightSlate" />
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/textObject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Object"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/subject"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/object"
+                app:cardElevation="0dp"
+                android:layout_marginVertical="5dp"
+                android:layout_below="@id/textObject"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardCornerRadius="10dp"
+                android:backgroundTint="@color/inactive">
+
+                <EditText
+                    android:id="@+id/ed_object"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
+                    android:hint="masukan nama penerima"
+                    android:paddingHorizontal="20dp"
+                    android:textColorHint="@color/lightSlate" />
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/textTanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/object"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tanggal"
+                app:cardElevation="0dp"
+                android:layout_marginVertical="5dp"
+                android:layout_below="@id/textTanggal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardCornerRadius="10dp"
+                android:backgroundTint="@color/inactive">
+                <EditText
+                    android:id="@+id/ed_tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:hint="masukan tanggal"
+                    android:textColorHint="@color/lightSlate"
+                    android:paddingHorizontal="20dp"
+                    android:background="@color/transparent" />
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/textUcapan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ucapan"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/tanggal"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ucapan"
+                app:cardElevation="0dp"
+                android:layout_marginVertical="5dp"
+                android:layout_below="@id/textUcapan"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardCornerRadius="10dp"
+                android:backgroundTint="@color/inactive">
+                <EditText
+                    android:id="@+id/ed_ucapan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:hint="Masukan Ucapan"
+                    android:textColorHint="@color/lightSlate"
+                    android:paddingHorizontal="20dp"
+                    android:background="@color/transparent" />
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnSimpanUcapan"
+                android:layout_below="@id/ucapan"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:layout_marginVertical="15dp"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="10dp"
+                android:layout_height="60dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_simpanUcapan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center|center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Simpan"
+                        android:textAllCaps="false"
+                        android:fontFamily="@font/poppinsreguler"
+                        android:paddingStart="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="15dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
