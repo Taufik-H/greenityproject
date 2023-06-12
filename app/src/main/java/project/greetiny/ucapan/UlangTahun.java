@@ -15,12 +15,15 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,7 +46,7 @@ import project.greetiny.fragment.FragmentList;
 
 public class UlangTahun extends Activity {
 
-    private ProgressBar progressBar;
+
     private EditText subject, object, tanggal, ucapan;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
@@ -59,6 +62,8 @@ public class UlangTahun extends Activity {
     private static final int  REQUEST_CODE_GALLERY = 2;
     private View Simpan, getfoto;
 
+    LottieAnimationView animationView;
+    TextView btn_text;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +71,7 @@ public class UlangTahun extends Activity {
 
         //Button Simpan
         Simpan = findViewById(R.id.btn_simpanUcapan);
-
+        animationView = findViewById(R.id.button_animation);
         //Input Foto
         getfoto = findViewById(R.id.btnGetFotoCard);
         ImageContainer = findViewById(R.id.imageContainer);
@@ -79,6 +84,8 @@ public class UlangTahun extends Activity {
         //Date Picker
         tanggal = findViewById(R.id.ed_tanggal);
         dateFormatter = new SimpleDateFormat("dd MMM yyyy");
+
+        btn_text = findViewById(R.id.btn_text);
         tanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,11 +103,14 @@ public class UlangTahun extends Activity {
         Simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 getSubject = subject.getText().toString();
                 getObject = object.getText().toString();
                 getTanggal = tanggal.getText().toString();
                 getUcapan = ucapan.getText().toString();
-
+                Simpan.setEnabled(false);
+                btn_text.setVisibility(View.GONE);
+                animationView.setVisibility(View.VISIBLE);
                 checkUser();
             }
         });
@@ -163,6 +173,8 @@ public class UlangTahun extends Activity {
         //mengecek apakah ada data yang kosong
         if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getObject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
+            animationView.setVisibility(View.GONE);
+            btn_text.setVisibility(View.VISIBLE);
             Toast.makeText(UlangTahun.this, "Masih ada yang kosong!!", Toast.LENGTH_SHORT).show();
         }else{
             //Mendapatkan data dari ImageView sebagai bytes
@@ -205,10 +217,14 @@ public class UlangTahun extends Activity {
                                         getGambar = "";
                                         Toast.makeText(UlangTahun.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
                                         //progressBar.setVisibility(View.GONE);
+                                        animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Intent intent = new Intent(UlangTahun.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
+                                        animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Toast.makeText(UlangTahun.this, "Data Gagal Tersimpan", Toast.LENGTH_SHORT).show();
                                     }
                                 }

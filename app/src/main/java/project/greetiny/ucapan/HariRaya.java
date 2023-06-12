@@ -14,10 +14,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -52,6 +54,9 @@ public class HariRaya extends Activity {
     private static final int REQUEST_CODE_CAMERA = 1;
     private static final int  REQUEST_CODE_GALLERY = 2;
     private View Simpan, getfoto;
+    LottieAnimationView animationView;
+    TextView btn_text;
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -60,7 +65,8 @@ public class HariRaya extends Activity {
 
         //Button Simpan
         Simpan = findViewById(R.id.btn_simpanUcapan);
-
+        animationView = findViewById(R.id.button_animation);
+        btn_text = findViewById(R.id.btn_text);
         //Input Foto
         getfoto = findViewById(R.id.btnGetFotoCard);
         ImageContainer = findViewById(R.id.imageContainer);
@@ -94,7 +100,9 @@ public class HariRaya extends Activity {
                 getObject = object.getText().toString();
                 getTanggal = tanggal.getText().toString();
                 getUcapan = ucapan.getText().toString();
-
+                Simpan.setEnabled(false);
+                btn_text.setVisibility(View.GONE);
+                animationView.setVisibility(View.VISIBLE);
                 checkUser();
             }
         });
@@ -157,6 +165,8 @@ public class HariRaya extends Activity {
         //mengecek apakah ada data yang kosong
         if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getObject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
+            animationView.setVisibility(View.GONE);
+            btn_text.setVisibility(View.VISIBLE);
             Toast.makeText(HariRaya.this, "Masih ada yang kosong!!", Toast.LENGTH_SHORT).show();
         }else{
             //Mendapatkan data dari ImageView sebagai bytes
@@ -199,10 +209,14 @@ public class HariRaya extends Activity {
                                         getGambar = "";
                                         Toast.makeText(HariRaya.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
                                         //progressBar.setVisibility(View.GONE);
+                                        animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Intent intent = new Intent(HariRaya.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
+                                        animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Toast.makeText(HariRaya.this, "Data Gagal Tersimpan", Toast.LENGTH_SHORT).show();
                                     }
                                 }

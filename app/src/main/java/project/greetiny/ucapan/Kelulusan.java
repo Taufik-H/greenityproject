@@ -64,9 +64,8 @@ public class Kelulusan extends Activity {
     private static final int  REQUEST_CODE_GALLERY = 2;
     private View Simpan, getfoto;
     public static final  int TIMER = 2000;
-    LinearLayout buttonLayout;
-    TextView buttonText;
-    LottieAnimationView buttonAnimation;
+    LottieAnimationView animationView;
+    TextView btn_text;
 
 
 
@@ -75,34 +74,6 @@ public class Kelulusan extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kelulusan);
 
-        // Hooks
-        buttonLayout = findViewById(R.id.btn_simpanUcapan);
-        buttonText = findViewById(R.id.btn_text);
-        buttonAnimation = findViewById(R.id.button_animation);
-
-        // Button click liestener
-        buttonLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //make lottie animation visibile
-                buttonAnimation.setVisibility(View.VISIBLE);
-                buttonAnimation.playAnimation();
-                //make text gone
-                buttonText.setVisibility(View.GONE);
-                //Handler
-                new Handler().postDelayed(this::resetbutton, TIMER);
-
-            }
-
-            private void resetbutton() {
-                // make lottie animation gone
-                buttonAnimation.pauseAnimation();
-                buttonAnimation.setVisibility(View. GONE);
-                // star new activation
-                startActivity(new Intent(getApplicationContext(), FragmentList.class));
-            }
-        });
-
 
         //Button Simpan
         Simpan = findViewById(R.id.btn_simpanUcapan);
@@ -110,7 +81,8 @@ public class Kelulusan extends Activity {
         //Input Foto
         getfoto = findViewById(R.id.btnGetFotoCard);
         ImageContainer = findViewById(R.id.imageContainer);
-
+        btn_text = findViewById(R.id.btn_text);
+        animationView = findViewById(R.id.button_animation);
         //Input Data
         subject = findViewById(R.id.ed_subject);
         object = findViewById(R.id.ed_object);
@@ -140,7 +112,9 @@ public class Kelulusan extends Activity {
                 getObject = object.getText().toString();
                 getTanggal = tanggal.getText().toString();
                 getUcapan = ucapan.getText().toString();
-
+                Simpan.setEnabled(false);
+                btn_text.setVisibility(View.GONE);
+                animationView.setVisibility(View.VISIBLE);
                 checkUser();
             }
         });
@@ -202,6 +176,8 @@ public class Kelulusan extends Activity {
         //mengecek apakah ada data yang kosong
         if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getObject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
+            animationView.setVisibility(View.GONE);
+            btn_text.setVisibility(View.VISIBLE);
             Toast.makeText(Kelulusan.this, "Masih ada yang kosong!!", Toast.LENGTH_SHORT).show();
         }else{
             //Mendapatkan data dari ImageView sebagai bytes
@@ -244,10 +220,14 @@ public class Kelulusan extends Activity {
                                         getGambar = "";
                                         Toast.makeText(Kelulusan.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
                                         //progressBar.setVisibility(View.GONE);
+                                        animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Intent intent = new Intent(Kelulusan.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
+                                        animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Toast.makeText(Kelulusan.this, "Data Gagal Tersimpan", Toast.LENGTH_SHORT).show();
                                     }
                                 }
