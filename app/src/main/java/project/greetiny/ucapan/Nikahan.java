@@ -14,10 +14,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -52,6 +54,8 @@ public class Nikahan extends Activity {
     private static final int REQUEST_CODE_CAMERA = 1;
     private static final int  REQUEST_CODE_GALLERY = 2;
     private View Simpan, getfoto;
+    TextView btn_text;
+    LottieAnimationView animationView;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -60,6 +64,8 @@ public class Nikahan extends Activity {
 
         //Button Simpan
         Simpan = findViewById(R.id.btn_simpanUcapan);
+        btn_text = findViewById(R.id.btn_text);
+        animationView = findViewById(R.id.button_animation);
 
         //Input Foto
         getfoto = findViewById(R.id.btnGetFotoCard);
@@ -94,7 +100,9 @@ public class Nikahan extends Activity {
                 getObject = object.getText().toString();
                 getTanggal = tanggal.getText().toString();
                 getUcapan = ucapan.getText().toString();
-
+                Simpan.setEnabled(false);
+                btn_text.setVisibility(View.GONE);
+                animationView.setVisibility(View.VISIBLE);
                 checkUser();
             }
         });
@@ -157,6 +165,9 @@ public class Nikahan extends Activity {
         //mengecek apakah ada data yang kosong
         if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getObject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
+
+            btn_text.setVisibility(View.VISIBLE);
+            animationView.setVisibility(View.GONE);
             Toast.makeText(Nikahan.this, "Masih ada yang kosong!!", Toast.LENGTH_SHORT).show();
         }else{
             //Mendapatkan data dari ImageView sebagai bytes
@@ -199,10 +210,14 @@ public class Nikahan extends Activity {
                                         getGambar = "";
                                         Toast.makeText(Nikahan.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
                                         //progressBar.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
+                                        animationView.setVisibility(View.GONE);
                                         Intent intent = new Intent(Nikahan.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
+                                        btn_text.setVisibility(View.VISIBLE);
+                                        animationView.setVisibility(View.GONE);
                                         Toast.makeText(Nikahan.this, "Data Gagal Tersimpan", Toast.LENGTH_SHORT).show();
                                     }
                                 }
