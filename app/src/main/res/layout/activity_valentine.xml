@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:scrollbarSize="0dp"
     android:layout_marginHorizontal="30dp"
-    tools:context=".ucapan.UlangTahun">
+    tools:context=".ucapan.Valentine">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,7 +15,7 @@
             android:id="@+id/textHeadline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Masukan Ucapan Ulang Tahun"
+            android:text="Masukan Ucapan Valentine"
             android:fontFamily="@font/poppinsblack"
             android:textStyle="bold"
             android:layout_marginVertical="5dp"
@@ -133,15 +133,16 @@
                 android:layout_height="60dp"
                 app:cardCornerRadius="10dp"
                 android:backgroundTint="@color/inactive">
+
                 <EditText
                     android:id="@+id/ed_object"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:hint="masukan tanggal ulang tahun"
-                    android:textColorHint="@color/lightSlate"
+                    android:background="@color/transparent"
+                    android:hint="masukan nama kekasihmu"
                     android:paddingHorizontal="20dp"
-                    android:background="@color/transparent" />
+                    android:textColorHint="@color/lightSlate" />
             </com.google.android.material.card.MaterialCardView>
             <TextView
                 android:id="@+id/textTanggal"
@@ -167,7 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:hint="masukan tanggal ulang tahun"
+                    android:hint="masukan tanggal"
                     android:textColorHint="@color/lightSlate"
                     android:paddingHorizontal="20dp"
                     android:background="@color/transparent" />
@@ -196,12 +197,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:hint="masukan ucapan"
+                    android:hint="ungkapkan rasa cintamu"
                     android:textColorHint="@color/lightSlate"
                     android:paddingHorizontal="20dp"
                     android:background="@color/transparent" />
             </com.google.android.material.card.MaterialCardView>
-            
             <RelativeLayout
                 android:enabled="true"
                 android:layout_marginBottom="20dp"
@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:text="Simpan Ucapan"
                     android:id="@+id/btn_text"
-                     android:layout_centerInParent="true"
+                    android:layout_centerInParent="true"
                     android:textSize="20dp"
                     android:fontFamily="@font/poppinsreguler"
                     android:textColor="@color/white"/>
@@ -232,7 +232,6 @@
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/loading"
-
                     />
 
 

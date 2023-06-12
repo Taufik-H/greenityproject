@@ -1,10 +1,5 @@
 package project.greetiny.ucapan;
 
-import static android.text.TextUtils.isEmpty;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -15,7 +10,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,15 +17,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -42,11 +36,10 @@ import java.util.UUID;
 
 import project.greetiny.MainActivity;
 import project.greetiny.R;
-import project.greetiny.fragment.FragmentList;
 
-public class UlangTahun extends Activity {
+public class Nikahan extends Activity {
 
-
+    private ProgressBar progressBar;
     private EditText subject, object, tanggal, ucapan;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
@@ -55,24 +48,25 @@ public class UlangTahun extends Activity {
     private String getSubject, getObject, getTanggal, getUcapan, getGambar;
     private StorageReference reference;
     DatabaseReference getReference;
-
     FirebaseStorage storage;
     DatabaseReference database;
     StorageReference storageReference;
     private static final int REQUEST_CODE_CAMERA = 1;
     private static final int  REQUEST_CODE_GALLERY = 2;
     private View Simpan, getfoto;
-
-    LottieAnimationView animationView;
     TextView btn_text;
+    LottieAnimationView animationView;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ulang_tahun);
+        setContentView(R.layout.activity_nikahan);
 
         //Button Simpan
         Simpan = findViewById(R.id.btn_simpanUcapan);
+        btn_text = findViewById(R.id.btn_text);
         animationView = findViewById(R.id.button_animation);
+
         //Input Foto
         getfoto = findViewById(R.id.btnGetFotoCard);
         ImageContainer = findViewById(R.id.imageContainer);
@@ -85,8 +79,6 @@ public class UlangTahun extends Activity {
         //Date Picker
         tanggal = findViewById(R.id.ed_tanggal);
         dateFormatter = new SimpleDateFormat("dd MMM yyyy");
-
-        btn_text = findViewById(R.id.btn_text);
         tanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +96,6 @@ public class UlangTahun extends Activity {
         Simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 getSubject = subject.getText().toString();
                 getObject = object.getText().toString();
                 getTanggal = tanggal.getText().toString();
@@ -174,9 +165,10 @@ public class UlangTahun extends Activity {
         //mengecek apakah ada data yang kosong
         if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getObject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
-            animationView.setVisibility(View.GONE);
+
             btn_text.setVisibility(View.VISIBLE);
-            Toast.makeText(UlangTahun.this, "Masih ada yang kosong!!", Toast.LENGTH_SHORT).show();
+            animationView.setVisibility(View.GONE);
+            Toast.makeText(Nikahan.this, "Masih ada yang kosong!!", Toast.LENGTH_SHORT).show();
         }else{
             //Mendapatkan data dari ImageView sebagai bytes
             ImageContainer.setDrawingCacheEnabled(true);
@@ -199,15 +191,15 @@ public class UlangTahun extends Activity {
                     taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            data_ulangTahun ultahBaru = new data_ulangTahun();
-                            ultahBaru.setSubject(getSubject);
-                            ultahBaru.setObject(getObject);
-                            ultahBaru.setTanggal(getTanggal);
-                            ultahBaru.setUcapan(getUcapan);
-                            ultahBaru.setGambar(uri.toString());
+                            data_Nikahan barunikah = new data_Nikahan();
+                            barunikah.setSubject(getSubject);
+                            barunikah.setObject(getObject);
+                            barunikah.setTanggal(getTanggal);
+                            barunikah.setUcapan(getUcapan);
+                            barunikah.setGambar(uri.toString());
 
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User/Kartu");
-                            databaseReference.push().setValue(ultahBaru).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            databaseReference.push().setValue(barunikah).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
@@ -216,17 +208,17 @@ public class UlangTahun extends Activity {
                                         tanggal.setText(getTanggal);
                                         ucapan.setText(getUcapan);
                                         getGambar = "";
-                                        Toast.makeText(UlangTahun.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Nikahan.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
                                         //progressBar.setVisibility(View.GONE);
-                                        animationView.setVisibility(View.GONE);
                                         btn_text.setVisibility(View.VISIBLE);
-                                        Intent intent = new Intent(UlangTahun.this, MainActivity.class);
+                                        animationView.setVisibility(View.GONE);
+                                        Intent intent = new Intent(Nikahan.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
-                                        animationView.setVisibility(View.GONE);
                                         btn_text.setVisibility(View.VISIBLE);
-                                        Toast.makeText(UlangTahun.this, "Data Gagal Tersimpan", Toast.LENGTH_SHORT).show();
+                                        animationView.setVisibility(View.GONE);
+                                        Toast.makeText(Nikahan.this, "Data Gagal Tersimpan", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });

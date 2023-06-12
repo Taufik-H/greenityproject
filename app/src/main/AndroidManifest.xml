@@ -12,7 +12,22 @@
         android:theme="@style/Theme.Greetiny"
         tools:targetApi="31">
         <activity
+            android:name=".ucapan.HariRaya"
+            android:exported="false" />
+        <activity
+            android:name=".ucapan.TahunBaru"
+            android:exported="false" />
+        <activity
+            android:name=".ucapan.Valentine"
+            android:exported="false" />
+        <activity
+            android:name=".ucapan.Kelulusan"
+            android:exported="false" />
+        <activity
             android:name=".ucapan.UlangTahun"
+            android:exported="false" />
+        <activity
+            android:name=".ucapan.Nikahan"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
