@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -32,7 +33,8 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private String getUsername, getEmail, getPassword;
 
-    @SuppressLint("MissingInflatedId")
+    LottieAnimationView animationView;
+    TextView btn_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,8 @@ public class SignUpActivity extends AppCompatActivity {
        // progress_signup = findViewById(R.id.progress_signup);
        // progress_signup.setVisibility(View.GONE);
         auth = FirebaseAuth.getInstance();
+        btn_text = findViewById(R.id.btn_text);
+        animationView = findViewById(R.id.button_animation);
 
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +82,8 @@ public class SignUpActivity extends AppCompatActivity {
             }
             else
             {
+                btn_text.setVisibility(View.GONE);
+                animationView.setVisibility(View.VISIBLE);
                 createUser();
             }
         }
@@ -87,8 +93,10 @@ public class SignUpActivity extends AppCompatActivity {
         auth.createUserWithEmailAndPassword(getEmail,getPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 user user = new user(getEmail, getPassword);
-                FirebaseDatabase.getInstance().getReference("User")
+
+                FirebaseDatabase.getInstance().getReference("users")
                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
@@ -99,6 +107,8 @@ public class SignUpActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                           //  progress_signup.setVisibility(View.GONE);
+                                            btn_text.setVisibility(View.VISIBLE);
+                                            animationView.setVisibility(View.GONE);
                                             if (task.isSuccessful()){
                                                 Toast.makeText(SignUpActivity.this, "Registrasi Berhasil, cek email kamu untuk verifikasi", Toast.LENGTH_SHORT).show();
 //                                                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
@@ -108,11 +118,12 @@ public class SignUpActivity extends AppCompatActivity {
                                             }else{
                                                 Toast.makeText(SignUpActivity.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                             }
-
                                         }
                                     });
                                 }else{
-                                  //  progress_signup.setVisibility(View.GONE);
+
+                                    btn_text.setVisibility(View.VISIBLE);
+                                    animationView.setVisibility(View.GONE);
                                     Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -120,6 +131,8 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                               //  progress_signup.setVisibility(View.GONE);
+                                btn_text.setVisibility(View.VISIBLE);
+                                animationView.setVisibility(View.GONE);
                                 Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                 finish();
                             }

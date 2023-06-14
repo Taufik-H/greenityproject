@@ -7,12 +7,11 @@
     tools:context=".fragment.FragmentList">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:textSize="25dp"
-        android:text="List Card" />
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/recycleview"
+       tools:listitem="@layout/recycler_item"
+       android:scrollbars="vertical"/>
 
 </FrameLayout>

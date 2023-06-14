@@ -15,9 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -36,7 +38,8 @@ public class SignInActivity extends AppCompatActivity {
     private String getEmail, getPassword;
     private LinearLayout btnLogin;
 
-
+    LottieAnimationView animationView;
+    TextView btn_text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,8 @@ public class SignInActivity extends AppCompatActivity {
         btnSignup = findViewById(R.id.textRegistrasi);
         auth = FirebaseAuth.getInstance();
 
+        btn_text = findViewById(R.id.btn_text);
+        animationView = findViewById(R.id.button_animation);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +63,8 @@ public class SignInActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(getEmail) || TextUtils.isEmpty(getPassword)) {
                     Toast.makeText(SignInActivity.this, "Email atau Sandi Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
                 } else {
+                    btn_text.setVisibility(View.GONE);
+                    animationView.setVisibility(View.VISIBLE);
                     loginUserAccount();
                 }
             }
@@ -97,16 +104,21 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void loginUserAccount() {
+
         auth.signInWithEmailAndPassword(getEmail, getPassword)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             if (auth.getCurrentUser().isEmailVerified()) {
+                                btn_text.setVisibility(View.GONE);
+                                animationView.setVisibility(View.VISIBLE);
                                 Toast.makeText(SignInActivity.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                                 startActivity(intent);
                             } else {
+                                btn_text.setVisibility(View.GONE);
+                                animationView.setVisibility(View.VISIBLE);
                                 AlertDialog.Builder alert = new AlertDialog.Builder(SignInActivity.this);
                                 alert.setTitle("Periksa Email anda untuk verifikasi !");
                                 alert.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
@@ -119,7 +131,11 @@ public class SignInActivity extends AppCompatActivity {
                                 alert.show();
                             }
                         } else {
+                            btn_text.setVisibility(View.GONE);
+                            animationView.setVisibility(View.VISIBLE);
                             Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignInActivity.this, SignInActivity.class);
+                            startActivity(intent);
                             finish();
                         }
                     }

@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import project.greetiny.auth.SignInActivity;
 
 
 public class Logout extends Activity {
-    private com.google.android.material.card.MaterialCardView profile;
+    private MaterialCardView profile;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
