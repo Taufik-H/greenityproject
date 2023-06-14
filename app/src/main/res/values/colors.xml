@@ -19,5 +19,9 @@
     <color name="yellow">#FFEB3B</color>
     <color name="primaryText">#1E293B</color>
 
+    <color name="night_mode">#6124B1</color>
+    <color name="Notification">#13B2C3</color>
+    <color name="private_acount">#E6A326</color>
+    <color name="security">#D95F69</color>
 
 </resources>
