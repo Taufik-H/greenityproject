@@ -215,7 +215,7 @@ public class UlangTahun extends Activity {
                             ultahBaru.setUcapan(getUcapan);
                             ultahBaru.setGambar(uri.toString());
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User/Kartu");
                             databaseReference.push().setValue(ultahBaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

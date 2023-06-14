@@ -35,16 +35,14 @@ public class FragmentList extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
-    String name;
+    String subject;
     myadapter adapter;
     public FragmentList() {
+
     }
 
     RecyclerView recyclerView;
-    List<DataClass> dataList;
-    DatabaseReference databaseReference;
-    ValueEventListener eventListener;
-    private ActivityMainBinding binding;
+
 
 
 
@@ -58,7 +56,7 @@ public class FragmentList extends Fragment {
     }
 
     public FragmentList(String subject) {
-        this.name=subject;
+        this.subject=subject;
 
     }
 
@@ -76,20 +74,30 @@ public class FragmentList extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        recyclerView=(RecyclerView)view.findViewById(R.id.recycleview);
+        RecyclerView recyclerView = view.findViewById(R.id.recycleview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<model> options =
-                new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("kartu"), model.class)
-                        .build();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User").child("Kartu");
+        FirebaseRecyclerOptions<model> options = new FirebaseRecyclerOptions.Builder<model>()
+                .setQuery(databaseReference, model.class)
+                .build();
 
-        adapter=new myadapter(options);
+        adapter = new myadapter(options);
         recyclerView.setAdapter(adapter);
 
         return view;
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
     public void onBackPressed()
     {
         AppCompatActivity activity=(AppCompatActivity)getContext();
