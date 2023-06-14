@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:clickable="true"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="5dp"
+    app:cardCornerRadius="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/reCard"
-
     android:layout_height="100dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingHorizontal="10dp"
         android:paddingVertical="7dp">
-        <com.google.android.material.imageview.ShapeableImageView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="90dp"
+            android:id="@+id/recImagec"
             android:layout_height="100dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/recimg"
-            android:id="@+id/recImage"/>
+            app:cardCornerRadius="15dp"
+            >
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+
+                android:src="@drawable/recimg"
+                android:id="@+id/recImage"/>
+        </com.google.android.material.card.MaterialCardView>
+
+
         <RelativeLayout
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/recImage"
+            android:layout_toEndOf="@id/recImagec"
             android:layout_width="match_parent"
             android:gravity="center_vertical"
             android:paddingHorizontal="10dp"
