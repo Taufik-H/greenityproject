@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/reCard"
+
+    android:layout_height="100dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="7dp">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/recimg"
+            android:id="@+id/recImage"/>
+        <RelativeLayout
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/recImage"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="10dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Taufik Hidayatulloh"
+                android:fontFamily="@font/poppinsbold"/>
+            <TextView
+                android:id="@+id/recType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ulang Tahun"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/poppinsreguler"/>
+              <com.google.android.material.card.MaterialCardView
+                  android:layout_width="100dp"
+                  android:layout_height="30dp"
+                  android:clickable="true"
+                  app:rippleColor="@color/lightSlate"
+                  android:layout_marginTop="5dp"
+                  app:cardCornerRadius="5dp"
+                  android:paddingVertical="15dp"
+                  android:paddingHorizontal="10dp"
+                  app:cardElevation="0dp"
+                  android:background="@color/teal_200"
+                  android:layout_below="@id/name">
+                  <TextView
+
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:fontFamily="@font/poppinsbold"
+                      android:textColor="@color/white"
+                      android:background="@color/yellow"
+                      android:text="copy link"/>
+              </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -3,12 +3,21 @@ package project.greetiny.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
+
 import project.greetiny.R;
+import project.greetiny.adapter.DataClass;
+import project.greetiny.databinding.ActivityMainBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +25,11 @@ import project.greetiny.R;
  * create an instance of this fragment.
  */
 public class FragmentList extends Fragment {
+    RecyclerView recyclerView;
+    List<DataClass> dataList;
+    DatabaseReference databaseReference;
+    ValueEventListener eventListener;
+    private ActivityMainBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +76,10 @@ public class FragmentList extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_list, container, false);
+
+
+
     }
+
+
 }

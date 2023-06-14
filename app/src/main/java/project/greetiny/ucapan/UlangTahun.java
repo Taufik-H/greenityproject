@@ -28,6 +28,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -42,17 +43,19 @@ import java.util.UUID;
 
 import project.greetiny.MainActivity;
 import project.greetiny.R;
+import project.greetiny.auth.SignInActivity;
 import project.greetiny.fragment.FragmentList;
 
 public class UlangTahun extends Activity {
 
 
-    private EditText subject, object, tanggal, ucapan;
+    private EditText kirimke, ucapan;
+    Button tanggal,buttonback;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
     public Uri imageUrl,uri;
-    private String getSubject, getObject, getTanggal, getUcapan, getGambar;
+    private String getSubject, getTanggal, getUcapan, getGambar;
     private StorageReference reference;
     DatabaseReference getReference;
     FirebaseStorage storage;
@@ -70,6 +73,7 @@ public class UlangTahun extends Activity {
         setContentView(R.layout.activity_ulang_tahun);
 
         //Button Simpan
+        buttonback = findViewById(R.id.buttonback);
         Simpan = findViewById(R.id.btn_simpanUcapan);
         animationView = findViewById(R.id.button_animation);
         //Input Foto
@@ -77,8 +81,7 @@ public class UlangTahun extends Activity {
         ImageContainer = findViewById(R.id.imageContainer);
 
         //Input Data
-        subject = findViewById(R.id.ed_subject);
-        object = findViewById(R.id.ed_object);
+        kirimke = findViewById(R.id.ed_subject);
         ucapan = findViewById(R.id.ed_ucapan);
 
         //Date Picker
@@ -104,8 +107,7 @@ public class UlangTahun extends Activity {
             @Override
             public void onClick(View v) {
 
-                getSubject = subject.getText().toString();
-                getObject = object.getText().toString();
+                getSubject = kirimke.getText().toString();
                 getTanggal = tanggal.getText().toString();
                 getUcapan = ucapan.getText().toString();
                 Simpan.setEnabled(false);
@@ -114,7 +116,15 @@ public class UlangTahun extends Activity {
                 checkUser();
             }
         });
-
+        buttonback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         getfoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,7 +181,7 @@ public class UlangTahun extends Activity {
     private void checkUser() {
 
         //mengecek apakah ada data yang kosong
-        if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getObject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
+        if(TextUtils.isEmpty(getSubject)||TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
             animationView.setVisibility(View.GONE);
             btn_text.setVisibility(View.VISIBLE);
@@ -200,23 +210,21 @@ public class UlangTahun extends Activity {
                         public void onSuccess(Uri uri) {
                             data_ulangTahun ultahBaru = new data_ulangTahun();
                             ultahBaru.setSubject(getSubject);
-                            ultahBaru.setObject(getObject);
                             ultahBaru.setTanggal(getTanggal);
                             ultahBaru.setUcapan(getUcapan);
                             ultahBaru.setGambar(uri.toString());
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User/Kartu");
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
                             databaseReference.push().setValue(ultahBaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        subject.setText(getSubject);
-                                        object.setText(getObject);
+                                        kirimke.setText(getSubject);
                                         tanggal.setText(getTanggal);
                                         ucapan.setText(getUcapan);
                                         getGambar = "";
                                         Toast.makeText(UlangTahun.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
-                                        //progressBar.setVisibility(View.GONE);
+
                                         animationView.setVisibility(View.GONE);
                                         btn_text.setVisibility(View.VISIBLE);
                                         Intent intent = new Intent(UlangTahun.this, MainActivity.class);
@@ -233,24 +241,7 @@ public class UlangTahun extends Activity {
                     });
 
                 }
-            })/*.addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(UlangTahun.this, "Uploading Gagal", Toast.LENGTH_SHORT).show();
-                }
-            })/*.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-                    progressBar.setVisibility(View.VISIBLE);
-                    double progress = (100.0 * snapshot.getBytesTransferred())/ snapshot.getTotalByteCount();
-                    progressBar.setProgress((int) progress);
-                }
-            })*/;
-
-            //jika tidak maka data dapat diproses dan menyimpan pada database
-            //Menyimpan data referensi pada Database berdasarkan User ID dari masing-masing Akun
-
+            });
 
         }
     }
