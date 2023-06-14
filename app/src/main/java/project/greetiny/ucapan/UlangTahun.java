@@ -58,6 +58,7 @@ public class UlangTahun extends Activity {
     private String getSubject, getTanggal, getUcapan, getGambar;
     private StorageReference reference;
     DatabaseReference getReference;
+
     FirebaseStorage storage;
     DatabaseReference database;
     StorageReference storageReference;
