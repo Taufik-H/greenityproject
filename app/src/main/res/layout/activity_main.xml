@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginHorizontal="15dp"
-    android:layout_marginVertical="20dp"
+
     >
 
     <androidx.viewpager2.widget.ViewPager2
@@ -20,8 +20,9 @@
         app:cardCornerRadius="20dp"
         android:elevation="5dp"
         android:translationZ="10dp"
+
         android:layout_marginHorizontal="50dp"
-        android:layout_marginVertical="5dp">
+        android:layout_marginVertical="20dp">
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/buttonNav"
             android:layout_width="match_parent"
@@ -30,6 +31,7 @@
             app:itemIconTint="@color/color_item_button"
             app:itemTextColor="@color/color_item_button"
             app:menu="@menu/menu_button_nav"
+
             android:layout_height="match_parent"/>
     </androidx.cardview.widget.CardView>
 

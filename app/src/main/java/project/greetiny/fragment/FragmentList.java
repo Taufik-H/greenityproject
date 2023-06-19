@@ -8,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
@@ -69,24 +73,34 @@ public class FragmentList extends Fragment {
         }
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycleview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User").child("Kartu");
-        FirebaseRecyclerOptions<model> options = new FirebaseRecyclerOptions.Builder<model>()
-                .setQuery(databaseReference, model.class)
-                .build();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String currentUserUid = currentUser.getUid();
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+            Query query = databaseReference.orderByChild("userId").equalTo(currentUserUid);
+            FirebaseRecyclerOptions<model> options = new FirebaseRecyclerOptions.Builder<model>()
+                    .setQuery(query, model.class)
+                    .build();
 
-        adapter = new myadapter(options);
-        recyclerView.setAdapter(adapter);
+            adapter = new myadapter(options, currentUserUid);
+            recyclerView.setAdapter(adapter);
+        } else {
+            recyclerView.setVisibility(View.GONE);
+            // Tampilkan pesan atau tindakan lain jika user tidak login
+        }
 
         return view;
     }
+
+
+
     @Override
     public void onStart() {
         super.onStart();

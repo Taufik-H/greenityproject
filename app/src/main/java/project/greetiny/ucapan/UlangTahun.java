@@ -29,6 +29,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -55,7 +56,7 @@ public class UlangTahun extends Activity {
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
     public Uri imageUrl,uri;
-    private String getSubject, getTanggal, getUcapan, getGambar;
+    private String getSubject, getTanggal, getUcapan, getGambar, getType,type,username;
     private StorageReference reference;
     DatabaseReference getReference;
 
@@ -107,14 +108,18 @@ public class UlangTahun extends Activity {
         Simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                getType = "Ulang tahun";
                 getSubject = kirimke.getText().toString();
                 getTanggal = tanggal.getText().toString();
                 getUcapan = ucapan.getText().toString();
                 Simpan.setEnabled(false);
                 btn_text.setVisibility(View.GONE);
                 animationView.setVisibility(View.VISIBLE);
+
+
+
                 checkUser();
+
             }
         });
         buttonback.setOnClickListener(new View.OnClickListener() {
@@ -209,13 +214,22 @@ public class UlangTahun extends Activity {
                     taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
+                            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                            String currentUserUid = currentUser.getUid();
+
                             data_ulangTahun ultahBaru = new data_ulangTahun();
+                            ultahBaru.setUsername(currentUser.getDisplayName());
+                            ultahBaru.setType(getType);
                             ultahBaru.setSubject(getSubject);
                             ultahBaru.setTanggal(getTanggal);
                             ultahBaru.setUcapan(getUcapan);
                             ultahBaru.setGambar(uri.toString());
+                            ultahBaru.setUserId(currentUserUid);;
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User/Kartu");
+                            ultahBaru.setGambar(uri.toString());
+
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
                             databaseReference.push().setValue(ultahBaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
@@ -223,6 +237,7 @@ public class UlangTahun extends Activity {
                                         kirimke.setText(getSubject);
                                         tanggal.setText(getTanggal);
                                         ucapan.setText(getUcapan);
+
                                         getGambar = "";
                                         Toast.makeText(UlangTahun.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
 
