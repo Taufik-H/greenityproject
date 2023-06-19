@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 
 import project.greetiny.R;
@@ -40,7 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-     //   ed_signup_username = findViewById(R.id.ed_signup_username);
+        ed_signup_username = findViewById(R.id.ed_username);
         ed_signup_email = findViewById(R.id.ed_regist_email);
         ed_signup_password = findViewById(R.id.ed_regist_passwd);
         btn_signup = findViewById(R.id.btn_signup);
@@ -67,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
     private void cekDataUser() {
-//        getUsername=ed_signup_username.getText().toString();
+        getUsername=ed_signup_username.getText().toString();
         getEmail=ed_signup_email.getText().toString();
         getPassword=ed_signup_password.getText().toString();
 
@@ -90,61 +92,101 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void createUser() {
-        auth.createUserWithEmailAndPassword(getEmail,getPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        auth.createUserWithEmailAndPassword(getEmail, getPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
-                user user = new user(getEmail, getPassword);
-
-                FirebaseDatabase.getInstance().getReference("users")
-                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = auth.getCurrentUser();
+                    if (user != null) {
+                        String uid = user.getUid(); // Mendapatkan UID pengguna yang baru dibuat
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                .setDisplayName(getUsername)
+                                .build();
+                        user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-//                                            cek status register
-                                if(task.isSuccessful())
-                                {
-                                    auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                          //  progress_signup.setVisibility(View.GONE);
-                                            btn_text.setVisibility(View.VISIBLE);
-                                            animationView.setVisibility(View.GONE);
-                                            if (task.isSuccessful()){
-                                                Toast.makeText(SignUpActivity.this, "Registrasi Berhasil, cek email kamu untuk verifikasi", Toast.LENGTH_SHORT).show();
-//                                                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                                                getEmail.toString();
-                                                getPassword.toString();
-                                                finish();
-                                            }else{
-                                                Toast.makeText(SignUpActivity.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
-                                }else{
-
+                                if (task.isSuccessful()) {
+                                    // Nama pengguna telah berhasil diatur
+                                    createDatabaseUser(uid); // Mengirim UID pengguna ke metode createDatabaseUser()
+                                } else {
+                                    // Gagal mengatur nama pengguna
                                     btn_text.setVisibility(View.VISIBLE);
                                     animationView.setVisibility(View.GONE);
-                                    Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpActivity.this, "Gagal mengatur nama pengguna", Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                              //  progress_signup.setVisibility(View.GONE);
-                                btn_text.setVisibility(View.VISIBLE);
-                                animationView.setVisibility(View.GONE);
-                                Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
                         });
+                    } else {
+                        // Pengguna saat ini tidak tersedia
+                        btn_text.setVisibility(View.VISIBLE);
+                        animationView.setVisibility(View.GONE);
+                        Toast.makeText(SignUpActivity.this, "Pengguna saat ini tidak tersedia", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // Gagal membuat pengguna dengan email dan password
+                    btn_text.setVisibility(View.VISIBLE);
+                    animationView.setVisibility(View.GONE);
+                    Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-              //  progress_signup.setVisibility(View.GONE);
                 Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
     }
-}
+
+    private void createDatabaseUser(String uid) {
+        user user = new user(getUsername, getEmail, getPassword);
+
+        FirebaseDatabase.getInstance().getReference("users").child(uid)
+                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            sendEmailVerification();
+                        } else {
+                            // Gagal menyimpan data pengguna ke database
+                            btn_text.setVisibility(View.VISIBLE);
+                            animationView.setVisibility(View.GONE);
+                            Toast.makeText(SignUpActivity.this, "Gagal menyimpan data pengguna", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        btn_text.setVisibility(View.VISIBLE);
+                        animationView.setVisibility(View.GONE);
+                        Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                });
+    }
+
+    private void sendEmailVerification() {
+        FirebaseUser user = auth.getCurrentUser();
+        if (user != null) {
+            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    btn_text.setVisibility(View.VISIBLE);
+                    animationView.setVisibility(View.GONE);
+                    if (task.isSuccessful()) {
+                        Toast.makeText(SignUpActivity.this, "Registrasi Berhasil, cek email kamu untuk verifikasi", Toast.LENGTH_SHORT).show();
+                        getUsername.toString();
+                        getEmail.toString();
+                        getPassword.toString();
+                        finish();
+                    } else {
+                        Toast.makeText(SignUpActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(SignUpActivity.this, "Gagal mengirim email verifikasi", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+};

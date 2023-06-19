@@ -36,6 +36,7 @@ public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener listener;
     private String getEmail, getPassword;
+    private String currentUserUid;
     private LinearLayout btnLogin;
 
     LottieAnimationView animationView;
@@ -81,7 +82,9 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+
                 if (user != null && user.isEmailVerified()) {
+                    currentUserUid = user.getUid();
                     startActivity(new Intent(SignInActivity.this, MainActivity.class));
                     finish();
                 }

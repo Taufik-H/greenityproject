@@ -7,18 +7,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+
 import project.greetiny.R;
 
 
 public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewholder> {
-
-    public myadapter(@NonNull FirebaseRecyclerOptions<model> options) {
+    private String currentUserUid;
+    public myadapter(@NonNull FirebaseRecyclerOptions<model> options, String currentUserUid) {
         super(options);
+        this.currentUserUid = currentUserUid;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull model model) {
-        holder.nametext.setText(model.getSubject());
+        if (model.getUserId().equals(currentUserUid)){
+
+            holder.nametext.setText(model.getSubject());
+        }else {
+            holder.nametext.setText("Data terfilter");
+        }
     }
 
     @NonNull

@@ -1,5 +1,6 @@
 package project.greetiny.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,9 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import project.greetiny.R;
 import project.greetiny.ucapan.HariRaya;
@@ -31,11 +34,14 @@ import project.greetiny.ucapan.Valentine;
  */
 public class FragmentHome extends Fragment {
     private MaterialCardView card1;
+
     private MaterialCardView card2;
     private MaterialCardView card3;
     private MaterialCardView card4;
     private MaterialCardView card5;
     private MaterialCardView card6;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,11 +86,22 @@ public class FragmentHome extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        TextView usernameTextView = view.findViewById(R.id.username);
         mAuth = FirebaseAuth.getInstance();
+
+
+        //nampilin nama user di atas
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null){
+            String username = currentUser.getDisplayName();
+            if (username !=null){
+                usernameTextView.setText("👋 Hai, " + username);
+            }
+        }
 
         //card 1 ulang tahun
         card1 = view.findViewById(R.id.card1);
+
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
