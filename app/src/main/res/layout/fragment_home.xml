@@ -173,6 +173,7 @@
                             </com.google.android.material.card.MaterialCardView>
                             <!-- Card 1 Content -->
                             <ImageView
+                                android:scaleType="centerCrop"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/ulangtahun" />
@@ -206,6 +207,7 @@
                             </com.google.android.material.card.MaterialCardView>
                             <!-- Card 2 Content -->
                             <ImageView
+                                android:scaleType="centerCrop"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/kelulusan" />
@@ -250,6 +252,7 @@
                             </com.google.android.material.card.MaterialCardView>
                             <!-- Card 3 Content -->
                             <ImageView
+                                android:scaleType="centerCrop"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/nikahan"/>
@@ -283,6 +286,7 @@
                             </com.google.android.material.card.MaterialCardView>
                             <!-- Card 4 Content -->
                             <ImageView
+                                android:scaleType="centerCrop"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/valentine"/>
@@ -327,6 +331,7 @@
                             </com.google.android.material.card.MaterialCardView>
                             <!-- Card 5 Content -->
                             <ImageView
+                                android:scaleType="centerCrop"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/tahunbaru"/>
@@ -360,6 +365,7 @@
                             </com.google.android.material.card.MaterialCardView>
                             <!-- Card 6 Content -->
                             <ImageView
+                                android:scaleType="centerCrop"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/hariraya"/>
