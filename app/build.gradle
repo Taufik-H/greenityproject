@@ -60,9 +60,10 @@ dependencies {
 
     // FirebaseUI for Firebase Auth
     implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
-
-
     implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
+
+    //shimmer effect
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 
 
