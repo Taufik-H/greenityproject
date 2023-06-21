@@ -49,19 +49,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/getfotolayout">
             <TextView
-                android:id="@+id/textKirimke"
+                android:id="@+id/textKirimkeA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kirim Ke"
+                android:text="Nama pasangan"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/black"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="8dp" />
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/kirimke"
+                android:id="@+id/kirimkeA"
                 android:layout_marginVertical="5dp"
-                android:layout_below="@id/textKirimke"
+                android:layout_below="@id/textKirimkeA"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 app:cardCornerRadius="10dp"
@@ -74,9 +74,39 @@
                     android:layout_height="100dp"
                     android:layout_gravity="center_vertical"
                     android:background="@color/transparent"
-                    android:hint="masukan nama pengirim ucapan"
+                    android:hint="masukan nama pasangan"
                     android:paddingHorizontal="20dp"
                     android:textColorHint="@color/lightSlate" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textKirimkeB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Pasangan"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/kirimkeA"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/kirimkeB"
+                app:cardElevation="0dp"
+                android:layout_marginVertical="5dp"
+                android:layout_below="@id/textKirimkeB"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardCornerRadius="10dp"
+                android:backgroundTint="@color/inactive">
+                <EditText
+                    android:id="@+id/ed_subjectB"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:hint="masukan nama pasangan"
+                    android:textColorHint="@color/lightSlate"
+                    android:paddingHorizontal="20dp"
+                    android:background="@color/transparent" />
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
@@ -85,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:text="Tanggal"
                 android:layout_marginBottom="5dp"
-                android:layout_below="@id/kirimke"
+                android:layout_below="@id/kirimkeB"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp" />
@@ -163,9 +193,7 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-
                         android:layout_height="60dp"
-
                         android:orientation="horizontal">
 
                         <com.google.android.material.card.MaterialCardView
