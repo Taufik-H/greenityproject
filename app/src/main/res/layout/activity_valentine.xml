@@ -11,16 +11,22 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <Button
+            android:id="@+id/buttonback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"/>
+
         <TextView
+            android:layout_below="@id/buttonback"
             android:id="@+id/textHeadline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Masukan Ucapan Valentine"
+            android:text="#Ulangtahun"
             android:fontFamily="@font/poppinsblack"
-            android:textStyle="bold"
             android:layout_marginVertical="5dp"
             android:textColor="@color/primaryText"
-            android:textSize="40dp"/>
+            android:textSize="20dp"/>
 
         <RelativeLayout
             android:id="@+id/getfotolayout"
@@ -33,71 +39,29 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp">
 
-            <TextView
-                android:id="@+id/foto"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Foto"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
 
-            <ImageView
-                android:id="@+id/imageContainer"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_below="@id/foto"
-                android:layout_gravity="center"
-                android:background="@drawable/border"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnGetFotoCard"
-                android:layout_below="@id/imageContainer"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                android:layout_marginVertical="15dp"
-                android:layout_width="match_parent"
-                app:cardBackgroundColor="@color/blue"
-                app:cardCornerRadius="10dp"
-                android:layout_height="30dp">
-                <LinearLayout
-                    android:id="@+id/btn_getfoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center|center_vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pilih Foto"
-                        android:textAllCaps="false"
-                        android:fontFamily="@font/poppinsreguler"
-                        android:paddingStart="8dp"
-                        android:textColor="@color/white"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
 
         </RelativeLayout>
+
         <RelativeLayout
+            android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/getfotolayout">
             <TextView
-                android:id="@+id/textSubject"
+                android:id="@+id/textKirimke"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Subject"
+                android:text="Kirim Ke"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/black"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="8dp" />
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/subject"
+                android:id="@+id/kirimke"
                 android:layout_marginVertical="5dp"
-                android:layout_below="@id/textSubject"
+                android:layout_below="@id/textKirimke"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 app:cardCornerRadius="10dp"
@@ -114,43 +78,14 @@
                     android:paddingHorizontal="20dp"
                     android:textColorHint="@color/lightSlate" />
             </com.google.android.material.card.MaterialCardView>
-            <TextView
-                android:id="@+id/textObject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Object"
-                android:layout_marginBottom="5dp"
-                android:layout_below="@id/subject"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp" />
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/object"
-                app:cardElevation="0dp"
-                android:layout_marginVertical="5dp"
-                android:layout_below="@id/textObject"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:cardCornerRadius="10dp"
-                android:backgroundTint="@color/inactive">
 
-                <EditText
-                    android:id="@+id/ed_object"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:background="@color/transparent"
-                    android:hint="masukan nama kekasihmu"
-                    android:paddingHorizontal="20dp"
-                    android:textColorHint="@color/lightSlate" />
-            </com.google.android.material.card.MaterialCardView>
             <TextView
                 android:id="@+id/textTanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tanggal"
                 android:layout_marginBottom="5dp"
-                android:layout_below="@id/object"
+                android:layout_below="@id/kirimke"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp" />
@@ -163,15 +98,20 @@
                 android:layout_height="60dp"
                 app:cardCornerRadius="10dp"
                 android:backgroundTint="@color/inactive">
-                <EditText
+                <Button
                     android:id="@+id/ed_tanggal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:hint="masukan tanggal"
-                    android:textColorHint="@color/lightSlate"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"
+                    android:text="Masukan tanggal ulang tahun"
                     android:paddingHorizontal="20dp"
-                    android:background="@color/transparent" />
+                    android:textColor="@color/lightSlate"
+                    android:fontFamily="@font/poppinsreguler"
+                    android:textAllCaps="false"
+                    android:textStyle="normal"
+                    android:background="@color/transparent"
+                    android:color="@color/inactive" />
             </com.google.android.material.card.MaterialCardView>
             <TextView
                 android:id="@+id/textUcapan"
@@ -185,6 +125,7 @@
                 android:layout_marginTop="8dp" />
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/ucapan"
+
                 app:cardElevation="0dp"
                 android:layout_marginVertical="5dp"
                 android:layout_below="@id/textUcapan"
@@ -197,41 +138,128 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:hint="ungkapkan rasa cintamu"
+                    android:hint="masukan ucapan"
                     android:textColorHint="@color/lightSlate"
                     android:paddingHorizontal="20dp"
                     android:background="@color/transparent" />
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
-                android:enabled="true"
-                android:layout_marginBottom="20dp"
-                android:layout_below="@id/ucapan"
-                android:layout_marginTop="20dp"
+                android:layout_marginVertical="10dp"
                 android:layout_width="match_parent"
-                android:layout_centerInParent="true"
-                android:layout_height="60dp"
-                android:background="@drawable/blue_button_background_ripple"
-                android:clickable="true"
-                android:id="@+id/btn_simpanUcapan"
-                >
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ucapan"
+                android:id="@+id/imageC">
                 <TextView
+                    android:id="@+id/textImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Simpan Ucapan"
+                    android:text="Image"
+                    android:textColor="@color/primaryText"/>
+                <RelativeLayout
+                    android:layout_marginVertical="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textImage">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="60dp"
+
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_gravity="start|center"
+                            android:background="@color/inactive">
+                            <ImageView
+                                android:id="@+id/imageContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+
+                                android:background="@drawable/image_icon"/>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_btn_getfoto"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/btnGetFotoCard"
+                                app:cardElevation="0dp"
+                                android:layout_width="match_parent"
+                                app:cardBackgroundColor="@color/inactive"
+                                app:cardCornerRadius="10dp"
+                                android:layout_height="60dp"
+                                android:textAlignment="textStart"
+                                android:layout_marginLeft="5dp"
+                                android:layout_alignParentEnd="true">
+                                <LinearLayout
+
+                                    android:id="@+id/btn_getfoto"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal"
+                                    android:gravity="start|center">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pilih Foto"
+                                        android:textAllCaps="false"
+                                        android:fontFamily="@font/poppinsreguler"
+                                        android:paddingStart="8dp"
+                                        android:textColor="@color/lightSlate"
+                                        android:textSize="15dp" />
+                                </LinearLayout>
+                            </com.google.android.material.card.MaterialCardView>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_simpanUcapan"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/imageC"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/blue_button_background_ripple"
+                android:clickable="true"
+                android:enabled="true">
+
+                <TextView
                     android:id="@+id/btn_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:textSize="20dp"
                     android:fontFamily="@font/poppinsreguler"
-                    android:textColor="@color/white"/>
+                    android:text="Simpan Ucapan"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/button_animation"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:visibility="gone"
                     android:layout_centerInParent="true"
+                    android:visibility="gone"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/loading"
+
                     />
 
 
