@@ -8,8 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import project.greetiny.R;
+import project.greetiny.adapter.DataClass;
 import project.greetiny.adapter.model;
 import project.greetiny.adapter.myadapter;
 
@@ -29,6 +34,9 @@ public class FragmentList extends Fragment {
     ShimmerFrameLayout shimmerFrameLayout;
     myadapter adapter;
     boolean isDataLoaded = false;
+    FloatingActionButton deletebutton;
+    String key = "";
+
 
     public FragmentList() {
 
@@ -96,6 +104,7 @@ public class FragmentList extends Fragment {
         }
 
         return view;
+
     }
 
     @Override
@@ -123,4 +132,8 @@ public class FragmentList extends Fragment {
                 .replace(R.id.recycleview,new FragmentList()).addToBackStack(null).commit();
 
     }
+
+
+
+
 }

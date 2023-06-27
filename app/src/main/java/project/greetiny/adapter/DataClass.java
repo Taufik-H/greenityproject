@@ -4,6 +4,11 @@ package project.greetiny.adapter;
 public class DataClass {
     private String dataTitle,dataType,dataImage,key;
 
+    public static DataClass get(int position) {
+        return null;
+    };
+
+
     public String getDataTitle() {
         return dataTitle;
     }

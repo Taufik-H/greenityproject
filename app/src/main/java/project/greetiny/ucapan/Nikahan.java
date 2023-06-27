@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,7 +41,8 @@ import project.greetiny.R;
 public class Nikahan extends Activity {
 
     private ProgressBar progressBar;
-    private EditText subject, object, tanggal, ucapan;
+    private EditText subject, object, ucapan;
+    private Button tanggal;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
@@ -72,8 +74,7 @@ public class Nikahan extends Activity {
         ImageContainer = findViewById(R.id.imageContainer);
 
         //Input Data
-        subject = findViewById(R.id.ed_subject);
-        object = findViewById(R.id.ed_object);
+        subject = findViewById(R.id.ed_subjectA);
         ucapan = findViewById(R.id.ed_ucapan);
 
         //Date Picker
