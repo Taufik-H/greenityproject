@@ -225,9 +225,7 @@ public class UlangTahun extends Activity {
                             ultahBaru.setTanggal(getTanggal);
                             ultahBaru.setUcapan(getUcapan);
                             ultahBaru.setGambar(uri.toString());
-                            ultahBaru.setUserId(currentUserUid);;
-
-                            ultahBaru.setGambar(uri.toString());
+                            ultahBaru.setUserId(currentUserUid);
 
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
                             databaseReference.push().setValue(ultahBaru).addOnCompleteListener(new OnCompleteListener<Void>() {

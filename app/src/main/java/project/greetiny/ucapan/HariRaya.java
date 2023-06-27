@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +24,8 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,12 +43,13 @@ import project.greetiny.R;
 public class HariRaya extends Activity {
 
     private ProgressBar progressBar;
-    private EditText subject, object, tanggal, ucapan;
+    private EditText subject, object, ucapan;
+    private Button tanggal;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
     public Uri imageUrl,uri;
-    private String getSubject, getObject, getTanggal, getUcapan, getGambar;
+    private String getSubject, getObject, getTanggal, getUcapan, getGambar, getType;
     private StorageReference reference;
     DatabaseReference getReference;
     FirebaseStorage storage;
@@ -73,7 +77,6 @@ public class HariRaya extends Activity {
 
         //Input Data
         subject = findViewById(R.id.ed_subject);
-        object = findViewById(R.id.ed_object);
         ucapan = findViewById(R.id.ed_ucapan);
 
         //Date Picker
@@ -96,8 +99,8 @@ public class HariRaya extends Activity {
         Simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getType = "Hari Raya";
                 getSubject = subject.getText().toString();
-                getObject = object.getText().toString();
                 getTanggal = tanggal.getText().toString();
                 getUcapan = ucapan.getText().toString();
                 Simpan.setEnabled(false);
@@ -163,7 +166,7 @@ public class HariRaya extends Activity {
     private void checkUser() {
 
         //mengecek apakah ada data yang kosong
-        if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getObject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
+        if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
             animationView.setVisibility(View.GONE);
             btn_text.setVisibility(View.VISIBLE);
@@ -190,20 +193,24 @@ public class HariRaya extends Activity {
                     taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
+                            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                            String currentUserUid = currentUser.getUid();
+
                             data_HariRaya hariraya = new data_HariRaya();
+                            hariraya.setType(getType);
                             hariraya.setSubject(getSubject);
-                            hariraya.setObject(getObject);
                             hariraya.setTanggal(getTanggal);
                             hariraya.setUcapan(getUcapan);
                             hariraya.setGambar(uri.toString());
+                            hariraya.setUserId(currentUserUid);
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User/Kartu");
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
                             databaseReference.push().setValue(hariraya).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         subject.setText(getSubject);
-                                        object.setText(getObject);
                                         tanggal.setText(getTanggal);
                                         ucapan.setText(getUcapan);
                                         getGambar = "";
