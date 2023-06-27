@@ -3,17 +3,27 @@ package project.greetiny.ucapan;
 public class data_Nikahan {
     private String gambar;
     private String subject;
+    private String subjectA;
+    private String subjectB;
     private String object;
     private String tanggal;
     private String ucapan;
+    private String username;
+    private String userId;
+    private String type;
     private String key;
 
     public data_Nikahan() {
         this.gambar = gambar;
         this.subject = subject;
+        this.subjectA = subjectA;
+        this.subjectB = subjectB;
         this.object = object;
         this.tanggal = tanggal;
         this.ucapan = ucapan;
+        this.username = username;
+        this.userId = userId;
+        this.type = type;
     }
 
     public String getGambar() {
@@ -30,6 +40,22 @@ public class data_Nikahan {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getSubjectA() {
+        return subjectA;
+    }
+
+    public void setSubjectA(String subjectA) {
+        this.subjectA = subjectA;
+    }
+
+    public String getSubjectB() {
+        return subjectB;
+    }
+
+    public void setSubjectB(String subjectB) {
+        this.subjectB = subjectB;
     }
 
     public String getObject() {
@@ -56,6 +82,30 @@ public class data_Nikahan {
         this.ucapan = ucapan;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getKey() {
         return key;
     }
@@ -64,3 +114,6 @@ public class data_Nikahan {
         this.key = key;
     }
 }
+
+
+
