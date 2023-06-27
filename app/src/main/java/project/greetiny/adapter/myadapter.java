@@ -23,6 +23,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
         if (model.getUserId().equals(currentUserUid)){
 
             holder.nametext.setText(model.getSubject());
+            holder.type.setText(model.getType());
         }else {
             holder.nametext.setText("Data terfilter");
         }
@@ -36,11 +37,12 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
     }
 
     public class myviewholder extends RecyclerView.ViewHolder {
-        TextView nametext;
+        TextView nametext, type;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             nametext = itemView.findViewById(R.id.name);
+            type = itemView.findViewById(R.id.recType);
         }
     }
 }
