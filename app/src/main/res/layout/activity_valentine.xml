@@ -22,7 +22,7 @@
             android:id="@+id/textHeadline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="#Ulangtahun"
+            android:text="#Valentine"
             android:fontFamily="@font/poppinsblack"
             android:layout_marginVertical="5dp"
             android:textColor="@color/primaryText"
@@ -80,42 +80,12 @@
             </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:id="@+id/textKirimkeB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama Pasangan"
-                android:layout_marginBottom="5dp"
-                android:layout_below="@id/kirimkeA"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp" />
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/kirimkeB"
-                app:cardElevation="0dp"
-                android:layout_marginVertical="5dp"
-                android:layout_below="@id/textKirimkeB"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                app:cardCornerRadius="10dp"
-                android:backgroundTint="@color/inactive">
-                <EditText
-                    android:id="@+id/ed_subjectB"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:hint="masukan nama pasangan"
-                    android:textColorHint="@color/lightSlate"
-                    android:paddingHorizontal="20dp"
-                    android:background="@color/transparent" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
                 android:id="@+id/textTanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tanggal"
                 android:layout_marginBottom="5dp"
-                android:layout_below="@id/kirimkeB"
+                android:layout_below="@id/kirimkeA"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp" />
