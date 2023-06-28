@@ -75,6 +75,7 @@ public class Nikahan extends Activity {
 
         //Input Data
         subject = findViewById(R.id.ed_subjectA);
+
         ucapan = findViewById(R.id.ed_ucapan);
 
         //Date Picker

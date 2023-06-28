@@ -3,17 +3,33 @@ package project.greetiny.ucapan;
 public class data_HariRaya {
     private String gambar;
     private String subject;
-    private String object;
     private String tanggal;
     private String ucapan;
+
+    private String username;
+    private String userId;
+    private String type;
+    private String websiteUrl;
+
     private String key;
 
     public data_HariRaya() {
         this.gambar = gambar;
         this.subject = subject;
-        this.object = object;
         this.tanggal = tanggal;
         this.ucapan = ucapan;
+        this.username = username;
+        this.userId = userId;
+        this.type = type;
+        this.websiteUrl = websiteUrl;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
     public String getGambar() {
@@ -32,14 +48,6 @@ public class data_HariRaya {
         this.subject = subject;
     }
 
-    public String getObject() {
-        return object;
-    }
-
-    public void setObject(String object) {
-        this.object = object;
-    }
-
     public String getTanggal() {
         return tanggal;
     }
@@ -54,6 +62,30 @@ public class data_HariRaya {
 
     public void setUcapan(String ucapan) {
         this.ucapan = ucapan;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getKey() {
