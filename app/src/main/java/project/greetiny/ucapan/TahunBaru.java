@@ -195,6 +195,9 @@ public class TahunBaru extends Activity {
                             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             String currentUserUid = currentUser.getUid();
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            DatabaseReference newCardRef = databaseReference.push();
+                            String cardId = newCardRef.getKey();
 
                             data_TahunBaru tahunbaru = new data_TahunBaru();
                             tahunbaru.setUsername(currentUser.getDisplayName());
@@ -204,9 +207,9 @@ public class TahunBaru extends Activity {
                             tahunbaru.setUcapan(getUcapan);
                             tahunbaru.setGambar(uri.toString());
                             tahunbaru.setUserId(currentUserUid);
+                            tahunbaru.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
-                            databaseReference.push().setValue(tahunbaru).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            newCardRef.setValue(tahunbaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {

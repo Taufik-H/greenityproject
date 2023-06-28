@@ -195,6 +195,9 @@ public class Valentine extends Activity {
                             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             String currentUserUid = currentUser.getUid();
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            DatabaseReference newCardRef = databaseReference.push();
+                            String cardId = newCardRef.getKey();
 
                             data_valentine valentinebaru = new data_valentine();
                             valentinebaru.setUsername(currentUser.getDisplayName());
@@ -204,9 +207,9 @@ public class Valentine extends Activity {
                             valentinebaru.setUcapan(getUcapan);
                             valentinebaru.setGambar(uri.toString());
                             valentinebaru.setUserId(currentUserUid);
+                            valentinebaru.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
-                            databaseReference.push().setValue(valentinebaru).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            newCardRef.setValue(valentinebaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {

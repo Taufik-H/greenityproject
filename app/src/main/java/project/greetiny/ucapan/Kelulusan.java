@@ -207,6 +207,9 @@ public class Kelulusan extends Activity {
                             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             String currentUserUid = currentUser.getUid();
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            DatabaseReference newCardRef = databaseReference.push();
+                            String cardId = newCardRef.getKey();
 
                             data_Kelulusan barululus = new data_Kelulusan();
                             barululus.setUsername(currentUser.getDisplayName());
@@ -216,8 +219,7 @@ public class Kelulusan extends Activity {
                             barululus.setUcapan(getUcapan);
                             barululus.setGambar(uri.toString());
                             barululus.setUserId(currentUserUid);
-
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            barululus.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
                             databaseReference.push().setValue(barululus).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

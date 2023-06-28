@@ -10,6 +10,7 @@ public class data_TahunBaru {
     private String userId;
     private String type;
     private String key;
+    private String websiteUrl;
 
     public data_TahunBaru() {
         this.gambar = gambar;
@@ -20,6 +21,15 @@ public class data_TahunBaru {
         this.username = username;
         this.userId = userId;
         this.type = type;
+        this.websiteUrl = websiteUrl;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
     public String getGambar() {

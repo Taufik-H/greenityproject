@@ -10,6 +10,7 @@ public class data_Kelulusan {
     private String userId;
     private String type;
     private String key;
+    private String websiteUrl;
 
     public data_Kelulusan() {
         this.gambar = gambar;
@@ -19,7 +20,16 @@ public class data_Kelulusan {
         this.ucapan = ucapan;
         this.username = username;
         this.userId = userId;
+        this.websiteUrl = websiteUrl;
         this.type = type;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
     public String getGambar() {

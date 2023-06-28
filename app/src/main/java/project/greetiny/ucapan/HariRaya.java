@@ -196,6 +196,9 @@ public class HariRaya extends Activity {
                             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             String currentUserUid = currentUser.getUid();
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            DatabaseReference newCardRef = databaseReference.push();
+                            String cardId = newCardRef.getKey();
 
                             data_HariRaya hariraya = new data_HariRaya();
                             hariraya.setType(getType);
@@ -204,9 +207,10 @@ public class HariRaya extends Activity {
                             hariraya.setUcapan(getUcapan);
                             hariraya.setGambar(uri.toString());
                             hariraya.setUserId(currentUserUid);
+                            hariraya.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
-                            databaseReference.push().setValue(hariraya).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                            newCardRef.setValue(hariraya).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
