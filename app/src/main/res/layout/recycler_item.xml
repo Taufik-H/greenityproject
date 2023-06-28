@@ -54,6 +54,7 @@
 
             <com.google.android.material.card.MaterialCardView
                   android:layout_width="100dp"
+                  android:id="@+id/copyLink"
                   android:layout_height="30dp"
                   android:clickable="true"
                   app:rippleColor="@color/lightSlate"
@@ -65,7 +66,7 @@
                   android:background="@color/teal_200"
                   android:layout_below="@id/name">
                   <TextView
-                        android:id="@+id/copyLink"
+
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:gravity="center"
