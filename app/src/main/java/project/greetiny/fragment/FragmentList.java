@@ -38,6 +38,8 @@ public class FragmentList extends Fragment {
     String key = "";
 
 
+
+
     public FragmentList() {
 
     }
@@ -45,6 +47,11 @@ public class FragmentList extends Fragment {
     public FragmentList(String subject) {
         this.subject = subject;
     }
+
+    public static Object get(int i) {
+        return null;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -132,8 +139,6 @@ public class FragmentList extends Fragment {
                 .replace(R.id.recycleview,new FragmentList()).addToBackStack(null).commit();
 
     }
-
-
 
 
 }

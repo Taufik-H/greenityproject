@@ -1,8 +1,22 @@
 package project.greetiny.adapter;
 
 
+import android.content.Intent;
+
 public class DataClass {
-    private String dataTitle,dataType,dataImage,key;
+    private String dataTitle;
+    private String dataType;
+    private String dataImage;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    private String key;
 
     public static DataClass get(int position) {
         return null;
@@ -42,5 +56,8 @@ public class DataClass {
 
     public DataClass(){
 
+    }
+
+    public void startActivity(Intent intent) {
     }
 }
