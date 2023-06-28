@@ -9,6 +9,7 @@ public class data_valentine {
     private String username;
     private String userId;
     private String type;
+    private String websiteUrl;
     private String key;
 
     public data_valentine() {
@@ -20,6 +21,15 @@ public class data_valentine {
         this.username = username;
         this.userId = userId;
         this.type = type;
+        this.websiteUrl = websiteUrl;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
     public String getGambar() {

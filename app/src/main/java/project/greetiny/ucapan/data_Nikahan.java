@@ -12,7 +12,7 @@ public class data_Nikahan {
     private String userId;
     private String type;
     private String key;
-
+    private String websiteUrl;
     public data_Nikahan() {
         this.gambar = gambar;
         this.subject = subject;
@@ -24,6 +24,15 @@ public class data_Nikahan {
         this.username = username;
         this.userId = userId;
         this.type = type;
+        this.websiteUrl = websiteUrl;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
     public String getGambar() {

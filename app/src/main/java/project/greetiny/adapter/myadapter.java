@@ -1,12 +1,18 @@
 package project.greetiny.adapter;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.card.MaterialCardView;
 
 import project.greetiny.R;
 
@@ -24,6 +30,16 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
 
             holder.nametext.setText(model.getSubject());
             holder.type.setText(model.getType());
+            String websiteUrl = model.getWebsiteUrl();
+            holder.copylink.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ClipboardManager clipboardManager = (ClipboardManager) view.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clipData = ClipData.newPlainText("TextView", websiteUrl);
+                    clipboardManager.setPrimaryClip(clipData);
+                    Toast.makeText(view.getContext(), "Copied", Toast.LENGTH_SHORT).show();
+                }
+            });
         }else {
             holder.nametext.setText("Data terfilter");
         }
@@ -37,12 +53,13 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
     }
 
     public class myviewholder extends RecyclerView.ViewHolder {
-        TextView nametext, type;
+        TextView nametext, type,copylink;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             nametext = itemView.findViewById(R.id.name);
             type = itemView.findViewById(R.id.recType);
+            copylink = itemView.findViewById(R.id.copyLink);
         }
     }
 }
