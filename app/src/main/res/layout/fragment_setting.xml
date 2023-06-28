@@ -85,7 +85,6 @@
                         android:switchMinWidth="50dp"/>
                 </RelativeLayout>
 
-
             </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -207,11 +206,24 @@
                     android:layout_toEndOf="@+id/bantuanIcon"/>
             </RelativeLayout>
         </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/logoutsetting"
+                android:layout_width="172dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_back_secondary_1"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="Log out"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="from"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:textColor="@color/lightSlate"
                 android:layout_gravity="center"
                 android:textSize="15dp"/>
@@ -223,6 +235,7 @@
                 android:src="@drawable/g_icons"/>
 
         </LinearLayout>
+
 
 
 

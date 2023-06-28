@@ -44,29 +44,31 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/getfotolayout">
+            android:layout_below="@id/getfotolayout"
+            android:layout_centerInParent="true">
+
             <TextView
                 android:id="@+id/textKirimke"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kirim Ke"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/black"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginTop="8dp" />
+                android:text="Kirim Ke"
+                android:textColor="@color/black" />
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/kirimke"
-                android:layout_marginVertical="5dp"
-                android:layout_below="@id/textKirimke"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@id/textKirimke"
+                android:layout_marginVertical="5dp"
+                android:backgroundTint="@color/inactive"
                 app:cardCornerRadius="10dp"
-                app:cardElevation="0dp"
-                android:backgroundTint="@color/inactive">
+                app:cardElevation="0dp">
 
                 <EditText
                     android:id="@+id/ed_subject"
@@ -83,83 +85,91 @@
                 android:id="@+id/textTanggal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tanggal"
-                android:layout_marginBottom="5dp"
                 android:layout_below="@id/kirimke"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Tanggal"
+                android:textColor="@color/black" />
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/tanggal"
-                app:cardElevation="0dp"
-                android:layout_marginVertical="5dp"
-                android:layout_below="@id/textTanggal"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@id/textTanggal"
+                android:layout_marginVertical="5dp"
+                android:backgroundTint="@color/inactive"
                 app:cardCornerRadius="10dp"
-                android:backgroundTint="@color/inactive">
+                app:cardElevation="0dp">
+
                 <Button
                     android:id="@+id/ed_tanggal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textAlignment="textStart"
-                    android:textSize="16sp"
-                    android:text="Masukan tanggal"
-                    android:paddingHorizontal="20dp"
-                    android:textColor="@color/lightSlate"
-                    android:fontFamily="@font/poppinsreguler"
-                    android:textAllCaps="false"
-                    android:textStyle="normal"
                     android:background="@color/transparent"
-                    android:color="@color/inactive" />
+                    android:color="@color/inactive"
+                    android:fontFamily="@font/poppinsreguler"
+                    android:paddingHorizontal="20dp"
+                    android:text="Masukan tanggal"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/lightSlate"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
             </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:id="@+id/textUcapan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ucapan"
-                android:layout_marginBottom="5dp"
                 android:layout_below="@id/tanggal"
                 android:layout_alignParentStart="true"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                android:text="Ucapan"
+                android:textColor="@color/black" />
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/ucapan"
 
-                app:cardElevation="0dp"
-                android:layout_marginVertical="5dp"
-                android:layout_below="@id/textUcapan"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_below="@id/textUcapan"
+                android:layout_marginVertical="5dp"
+                android:backgroundTint="@color/inactive"
                 app:cardCornerRadius="10dp"
-                android:backgroundTint="@color/inactive">
+                app:cardElevation="0dp">
+
                 <EditText
                     android:id="@+id/ed_ucapan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
                     android:hint="masukan ucapan"
-                    android:textColorHint="@color/lightSlate"
                     android:paddingHorizontal="20dp"
-                    android:background="@color/transparent" />
+                    android:textColorHint="@color/lightSlate" />
             </com.google.android.material.card.MaterialCardView>
+
             <RelativeLayout
-                android:layout_marginVertical="10dp"
+                android:id="@+id/imageC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ucapan"
-                android:id="@+id/imageC">
+                android:layout_marginVertical="10dp">
+
                 <TextView
                     android:id="@+id/textImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Image"
-                    android:textColor="@color/primaryText"/>
+                    android:textColor="@color/primaryText" />
+
                 <RelativeLayout
-                    android:layout_marginVertical="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/textImage">
+                    android:layout_below="@+id/textImage"
+                    android:layout_marginVertical="5dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -171,18 +181,19 @@
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="40dp"
                             android:layout_height="40dp"
-                            app:cardCornerRadius="10dp"
-                            app:cardElevation="0dp"
                             android:layout_gravity="start|center"
-                            android:background="@color/inactive">
+                            android:background="@color/inactive"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp">
+
                             <ImageView
                                 android:id="@+id/imageContainer"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
-                                android:scaleType="fitXY"
+                                android:background="@drawable/image_icon"
 
-                                android:background="@drawable/image_icon"/>
+                                android:scaleType="fitXY" />
                         </com.google.android.material.card.MaterialCardView>
 
                         <RelativeLayout
@@ -194,29 +205,30 @@
 
                             <com.google.android.material.card.MaterialCardView
                                 android:id="@+id/btnGetFotoCard"
-                                app:cardElevation="0dp"
                                 android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginLeft="5dp"
+                                android:textAlignment="textStart"
                                 app:cardBackgroundColor="@color/inactive"
                                 app:cardCornerRadius="10dp"
-                                android:layout_height="60dp"
-                                android:textAlignment="textStart"
-                                android:layout_marginLeft="5dp"
-                                android:layout_alignParentEnd="true">
+                                app:cardElevation="0dp">
+
                                 <LinearLayout
 
                                     android:id="@+id/btn_getfoto"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:orientation="horizontal"
-                                    android:gravity="start|center">
+                                    android:gravity="start|center"
+                                    android:orientation="horizontal">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Pilih Foto"
-                                        android:textAllCaps="false"
                                         android:fontFamily="@font/poppinsreguler"
                                         android:paddingStart="8dp"
+                                        android:text="Pilih Foto"
+                                        android:textAllCaps="false"
                                         android:textColor="@color/lightSlate"
                                         android:textSize="15dp" />
                                 </LinearLayout>

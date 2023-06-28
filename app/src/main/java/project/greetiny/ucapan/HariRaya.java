@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,7 +41,7 @@ import project.greetiny.R;
 public class HariRaya extends Activity {
 
     private ProgressBar progressBar;
-    private EditText subject, object, tanggal, ucapan;
+    private EditText subject, object, ucapan;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
@@ -53,6 +54,7 @@ public class HariRaya extends Activity {
     StorageReference storageReference;
     private static final int REQUEST_CODE_CAMERA = 1;
     private static final int  REQUEST_CODE_GALLERY = 2;
+    private Button tanggal;
     private View Simpan, getfoto;
     LottieAnimationView animationView;
     TextView btn_text;
@@ -73,7 +75,6 @@ public class HariRaya extends Activity {
 
         //Input Data
         subject = findViewById(R.id.ed_subject);
-        object = findViewById(R.id.ed_object);
         ucapan = findViewById(R.id.ed_ucapan);
 
         //Date Picker
