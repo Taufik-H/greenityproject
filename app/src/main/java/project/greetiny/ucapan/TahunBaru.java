@@ -44,7 +44,7 @@ public class TahunBaru extends Activity {
 
     private ProgressBar progressBar;
     private EditText subject, object, ucapan;
-    private Button tanggal;
+    private Button tanggal, btn_back;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
@@ -78,6 +78,8 @@ public class TahunBaru extends Activity {
         subject = findViewById(R.id.ed_subject);
         ucapan = findViewById(R.id.ed_ucapan);
 
+        btn_back = findViewById(R.id.buttonback);
+
         //Date Picker
         tanggal = findViewById(R.id.ed_tanggal);
         dateFormatter = new SimpleDateFormat("dd MMM yyyy");
@@ -106,6 +108,17 @@ public class TahunBaru extends Activity {
                 btn_text.setVisibility(View.GONE);
                 animationView.setVisibility(View.VISIBLE);
                 checkUser();
+            }
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();*/
+                onBackPressed();
             }
         });
 
