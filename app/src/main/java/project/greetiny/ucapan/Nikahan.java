@@ -80,7 +80,7 @@ public class Nikahan extends Activity {
         subjectB = findViewById(R.id.ed_subjectB);
         ucapan = findViewById(R.id.ed_ucapan);
 
-        btn_text = findViewById(R.id.buttonback);
+
 
         //Date Picker
         tanggal = findViewById(R.id.ed_tanggal);
