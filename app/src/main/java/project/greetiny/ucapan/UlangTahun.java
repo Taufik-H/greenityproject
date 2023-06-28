@@ -217,6 +217,11 @@ public class UlangTahun extends Activity {
                             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             String currentUserUid = currentUser.getUid();
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            DatabaseReference newCardRef = databaseReference.push();
+                            String cardId = newCardRef.getKey();
+
+
 
                             data_ulangTahun ultahBaru = new data_ulangTahun();
                             ultahBaru.setUsername(currentUser.getDisplayName());
@@ -226,9 +231,12 @@ public class UlangTahun extends Activity {
                             ultahBaru.setUcapan(getUcapan);
                             ultahBaru.setGambar(uri.toString());
                             ultahBaru.setUserId(currentUserUid);
+                            ultahBaru.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
-                            databaseReference.push().setValue(ultahBaru).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+
+
+                            newCardRef.setValue(ultahBaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {

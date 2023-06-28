@@ -5,7 +5,6 @@ public class model {
     String subject;
     String userId;
     String type;
-    String gambar;
 
     public model() {
     }
@@ -14,7 +13,6 @@ public class model {
         this.subject = subject;
         this.userId = userId;
         this.type = type;
-        this.gambar = gambar;
     }
 
     public String getType() {
@@ -39,13 +37,5 @@ public class model {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getGambar() {
-        return gambar;
-    }
-
-    public void setGambar(String gambar) {
-        this.gambar = gambar;
     }
 }

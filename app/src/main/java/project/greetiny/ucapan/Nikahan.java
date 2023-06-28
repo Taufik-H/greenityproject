@@ -199,6 +199,9 @@ public class Nikahan extends Activity {
                             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                             FirebaseUser currentUser = firebaseAuth.getCurrentUser();
                             String currentUserUid = currentUser.getUid();
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
+                            DatabaseReference newCardRef = databaseReference.push();
+                            String cardId = newCardRef.getKey();
 
                             data_Nikahan barunikah = new data_Nikahan();
                             barunikah.setUsername(currentUser.getDisplayName());
@@ -209,9 +212,9 @@ public class Nikahan extends Activity {
                             barunikah.setUcapan(getUcapan);
                             barunikah.setGambar(uri.toString());
                             barunikah.setUserId(currentUserUid);
+                            barunikah.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
 
-                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
-                            databaseReference.push().setValue(barunikah).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            newCardRef.setValue(barunikah).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
