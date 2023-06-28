@@ -119,15 +119,14 @@
                             android:layout_height="60dp"
                             app:cardCornerRadius="10dp"
                             android:backgroundTint="@color/inactive">
-
                             <EditText
                                 android:id="@+id/et_password"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
-                                android:hint="masukan password"
+                                android:hint="Masukan Password"
+                                android:autofillHints="Password"
                                 android:inputType="textPassword"
-                                android:autofillHints="password"
                                 android:textColorHint="@color/lightSlate"
                                 android:paddingHorizontal="20dp"
                                 android:background="@color/transparent" />

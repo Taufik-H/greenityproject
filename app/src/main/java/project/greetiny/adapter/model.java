@@ -6,15 +6,25 @@ public class model {
     String userId;
     String type;
     String websiteUrl;
+    String key;
 
     public model() {
     }
 
-    public model(String subject, String userId) {
+    public model(String subject, String userId, String type, String websiteUrl, String key) {
         this.subject = subject;
         this.userId = userId;
         this.type = type;
         this.websiteUrl = websiteUrl;
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getWebsiteUrl() {

@@ -1,5 +1,4 @@
 package project.greetiny.fragment;
-
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,22 +19,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import project.greetiny.MainActivity;
 import project.greetiny.R;
+import project.greetiny.adapter.OnFragmentScrollListener;
 import project.greetiny.adapter.model;
-import project.greetiny.adapter.adapter;
+import project.greetiny.adapter.myadapter;
 
 
-public class FragmentList extends Fragment {
+public class FragmentList extends Fragment  {
 
     String subject;
     ShimmerFrameLayout shimmerFrameLayout;
-    project.greetiny.adapter.adapter adapter;
+    myadapter adapter;
+    private TextView emptyTextView;
+
     boolean isDataLoaded = false;
-    FloatingActionButton deletebutton;
-    String key = "";
-
-
-
 
     public FragmentList() {
 
@@ -43,10 +42,6 @@ public class FragmentList extends Fragment {
 
     public FragmentList(String subject) {
         this.subject = subject;
-    }
-
-    public static Object get(int i) {
-        return null;
     }
 
 
@@ -57,6 +52,8 @@ public class FragmentList extends Fragment {
         shimmerFrameLayout = view.findViewById(R.id.shimmer);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        emptyTextView = view.findViewById(R.id.emptyText);
+        // Set FragmentList sebagai listener scroll
 
         if (currentUser != null) {
 
@@ -67,7 +64,7 @@ public class FragmentList extends Fragment {
                     .setQuery(query, model.class)
                     .build();
 
-            adapter = new adapter(options, currentUserUid);
+            adapter = new myadapter(options, currentUserUid,this);
             recyclerView.setAdapter(adapter);
 
             // Listener untuk memeriksa apakah data telah dimuat
@@ -75,10 +72,18 @@ public class FragmentList extends Fragment {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
+
                         adapter.startListening();
                         recyclerView.setVisibility(View.VISIBLE);
                         shimmerFrameLayout.stopShimmer();
                         shimmerFrameLayout.setVisibility(View.GONE);
+                        emptyTextView.setVisibility(View.GONE);
+                    }else {
+                        recyclerView.setVisibility(View.GONE);
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        emptyTextView.setVisibility(View.VISIBLE);
+                        emptyTextView.setText("Tidak ada kartu tersedia");
                     }
                 }
 
@@ -95,7 +100,6 @@ public class FragmentList extends Fragment {
         }
 
         return view;
-
     }
 
 
@@ -120,8 +124,5 @@ public class FragmentList extends Fragment {
 
         AppCompatActivity activity = (AppCompatActivity) getContext();
         activity.getSupportFragmentManager().popBackStack();
-
     }
-
-
-}
+    }
