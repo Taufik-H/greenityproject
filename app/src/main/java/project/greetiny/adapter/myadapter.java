@@ -53,8 +53,8 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
     }
 
     public class myviewholder extends RecyclerView.ViewHolder {
-        TextView nametext, type,copylink;
-
+        TextView nametext, type;
+        MaterialCardView copylink;
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             nametext = itemView.findViewById(R.id.name);
