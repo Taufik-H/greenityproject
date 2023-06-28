@@ -3,15 +3,15 @@ package project.greetiny;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 pagerMain;
     ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
     BottomNavigationView buttonNav;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +33,18 @@ public class MainActivity extends AppCompatActivity {
 
         pagerMain = findViewById(R.id.pagerMain);
         buttonNav = findViewById(R.id.buttonNav);
+
+
         fragmentArrayList.add(new FragmentHome());
         fragmentArrayList.add(new FragmentList());
         fragmentArrayList.add(new fragmentSetting());
 
-
-        AdapterViewPager adapterViewPager = new AdapterViewPager(this,fragmentArrayList);
+        AdapterViewPager adapterViewPager = new AdapterViewPager(this, fragmentArrayList);
         pagerMain.setAdapter(adapterViewPager);
         pagerMain.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
-                switch (position){
-
+                switch (position) {
                     case 0:
                         buttonNav.setSelectedItemId(R.id.ithome);
                         break;
@@ -57,10 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 super.onPageSelected(position);
             }
         });
+
         buttonNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.ithome:
                         pagerMain.setCurrentItem(0);
                         break;
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
+
 }

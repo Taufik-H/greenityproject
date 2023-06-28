@@ -1,5 +1,4 @@
 package project.greetiny.fragment;
-
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,16 +17,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import project.greetiny.MainActivity;
 import project.greetiny.R;
+import project.greetiny.adapter.OnFragmentScrollListener;
 import project.greetiny.adapter.model;
 import project.greetiny.adapter.myadapter;
 
 
-public class FragmentList extends Fragment {
+public class FragmentList extends Fragment  {
 
     String subject;
     ShimmerFrameLayout shimmerFrameLayout;
     myadapter adapter;
+
     boolean isDataLoaded = false;
 
     public FragmentList() {
@@ -38,6 +41,7 @@ public class FragmentList extends Fragment {
         this.subject = subject;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
@@ -45,6 +49,8 @@ public class FragmentList extends Fragment {
         shimmerFrameLayout = view.findViewById(R.id.shimmer);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        // Set FragmentList sebagai listener scroll
 
         if (currentUser != null) {
 
@@ -55,7 +61,7 @@ public class FragmentList extends Fragment {
                     .setQuery(query, model.class)
                     .build();
 
-            adapter = new myadapter(options, currentUserUid);
+            adapter = new myadapter(options, currentUserUid,this);
             recyclerView.setAdapter(adapter);
 
             // Listener untuk memeriksa apakah data telah dimuat
@@ -63,6 +69,7 @@ public class FragmentList extends Fragment {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
+
                         adapter.startListening();
                         recyclerView.setVisibility(View.VISIBLE);
                         shimmerFrameLayout.stopShimmer();
@@ -107,6 +114,5 @@ public class FragmentList extends Fragment {
 
         AppCompatActivity activity = (AppCompatActivity) getContext();
         activity.getSupportFragmentManager().popBackStack();
-
     }
-}
+    }
