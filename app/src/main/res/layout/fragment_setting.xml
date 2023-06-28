@@ -10,235 +10,155 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/profile"/>
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Supriadi"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:textColor="@color/blue"/>
-            <TextView
+                android:id="@+id/headtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="supriadi@gmail.com"
-                android:textColor="@color/lightSlate"
-                android:layout_gravity="center"
-                android:textSize="15dp"/>
+                android:layout_marginVertical="10dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Setting"
+                android:textSize="30dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="113dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_back_secondary_100"
-                android:paddingStart="20dp"
-                android:text="Edit Profile"
-                android:textSize="10dp"
-                android:textColor="@color/white"
-                android:paddingEnd="20dp" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:background="@drawable/bg_setting"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_setting"
                 android:orientation="vertical"
                 android:padding="15dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <ImageView
+                        android:id="@+id/nightModeIcon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:id="@+id/nightModeIcon"
-                        android:src="@drawable/night"
                         android:background="@drawable/round_night_mode"
-                        android:padding="12dp"/>
+                        android:padding="12dp"
+                        android:src="@drawable/night" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
                         android:layout_centerVertical="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@+id/nightModeIcon"
                         android:text="Night Mode"
-                        android:textColor="@color/blue"
-                        android:textStyle="bold"
-                        android:layout_toEndOf="@+id/nightModeIcon"/>
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp"/>
+                        android:switchMinWidth="50dp" />
                 </RelativeLayout>
 
             </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@drawable/bg_setting"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:padding="15dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/bahasaIcon"
-                    android:src="@drawable/bahasa"
-                    android:background="@drawable/round_night_mode"
-                    android:padding="12dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_centerVertical="true"
-                    android:text="Pengaturan Bahasa"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold"
-                    android:layout_toEndOf="@+id/bahasaIcon"/>
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@drawable/bg_setting"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:padding="15dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/bagikanIcon"
-                    android:src="@drawable/bagikan"
-                    android:background="@drawable/round_night_mode"
-                    android:padding="12dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_centerVertical="true"
-                    android:text="Bagikan Aplikasi"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold"
-                    android:layout_toEndOf="@+id/bagikanIcon"/>
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@drawable/bg_setting"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:padding="15dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/privasiIcon"
-                    android:src="@drawable/privasi"
-                    android:background="@drawable/round_night_mode"
-                    android:padding="12dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_centerVertical="true"
-                    android:text="Privasi"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold"
-                    android:layout_toEndOf="@+id/privasiIcon"/>
-            </RelativeLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:background="@drawable/bg_setting"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:padding="15dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/bantuanIcon"
-                    android:src="@drawable/bantuan"
-                    android:background="@drawable/round_night_mode"
-                    android:padding="12dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_centerVertical="true"
-                    android:text="Bantuan"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold"
-                    android:layout_toEndOf="@+id/bantuanIcon"/>
-            </RelativeLayout>
-        </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/logoutsetting"
-                android:layout_width="172dp"
-                android:layout_height="40dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_setting"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/privasiIcon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_night_mode"
+                        android:padding="12dp"
+                        android:src="@drawable/privasi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@+id/privasiIcon"
+                        android:text="Privasi"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_setting"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/bantuanIcon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/round_night_mode"
+                        android:padding="12dp"
+                        android:src="@drawable/bantuan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@+id/bantuanIcon"
+                        android:text="Bantuan"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="182dp"
+                android:layout_height="50dp"
+                android:id="@+id/btn_logout"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/round_back_secondary_1"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="Log out"
-                android:textColor="@color/white"
-                android:textSize="10dp" />
+                android:text="Log Out" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="from"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/lightSlate"
                 android:layout_gravity="center"
-                android:textSize="15dp"/>
+                android:layout_marginTop="20dp"
+                android:text="from"
+                android:textColor="@color/lightSlate"
+                android:textSize="15dp" />
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/g_icons"/>
-
+                android:src="@drawable/g_icons" />
         </LinearLayout>
-
-
-
-
     </ScrollView>
 
 </LinearLayout>

@@ -2,6 +2,7 @@ package project.greetiny.ucapan;
 
 public class data_ulangTahun {
     private String gambar;
+    private String websiteUrl;
     private String subject;
     private String object;
     private String tanggal;
@@ -9,6 +10,7 @@ public class data_ulangTahun {
     private String username;
     private String userId;
     private String type;
+
     private String key;
 
     public String getGambar() {
@@ -17,6 +19,10 @@ public class data_ulangTahun {
 
     public void setGambar(String gambar) {
         this.gambar = gambar;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
     }
 
     public String getSubject() {
@@ -83,8 +89,13 @@ public class data_ulangTahun {
         this.key = key;
     }
 
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
+    }
+
     public data_ulangTahun() {
         this.gambar = gambar;
+        this.websiteUrl = websiteUrl;
         this.subject = subject;
         this.object = object;
         this.tanggal = tanggal;
@@ -92,7 +103,5 @@ public class data_ulangTahun {
         this.username = username;
         this.userId = userId;
         this.type = type;
-
-
     }
 }
