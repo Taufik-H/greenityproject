@@ -45,7 +45,7 @@ public class Nikahan extends Activity {
     private ProgressBar progressBar;
     private EditText subject, object, ucapan;
 
-    private EditText subject, subjectB, ucapan;
+    private EditText subjectB;
 
     private Button tanggal;
     DatePickerDialog datePickerDialog;
