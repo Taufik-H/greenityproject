@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +32,7 @@ public class FragmentList extends Fragment  {
     String subject;
     ShimmerFrameLayout shimmerFrameLayout;
     myadapter adapter;
+    private TextView emptyTextView;
 
     boolean isDataLoaded = false;
 
@@ -49,7 +52,7 @@ public class FragmentList extends Fragment  {
         shimmerFrameLayout = view.findViewById(R.id.shimmer);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
+        emptyTextView = view.findViewById(R.id.emptyText);
         // Set FragmentList sebagai listener scroll
 
         if (currentUser != null) {
@@ -74,6 +77,13 @@ public class FragmentList extends Fragment  {
                         recyclerView.setVisibility(View.VISIBLE);
                         shimmerFrameLayout.stopShimmer();
                         shimmerFrameLayout.setVisibility(View.GONE);
+                        emptyTextView.setVisibility(View.GONE);
+                    }else {
+                        recyclerView.setVisibility(View.GONE);
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        emptyTextView.setVisibility(View.VISIBLE);
+                        emptyTextView.setText("Tidak ada kartu tersedia");
                     }
                 }
 
