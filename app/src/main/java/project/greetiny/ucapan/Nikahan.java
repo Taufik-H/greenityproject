@@ -44,7 +44,7 @@ public class Nikahan extends Activity {
 
     private ProgressBar progressBar;
     private EditText subject, subjectB, ucapan;
-    private Button tanggal;
+    private Button tanggal, btn_back;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
@@ -80,6 +80,8 @@ public class Nikahan extends Activity {
         subjectB = findViewById(R.id.ed_subjectB);
         ucapan = findViewById(R.id.ed_ucapan);
 
+        btn_text = findViewById(R.id.buttonback);
+
         //Date Picker
         tanggal = findViewById(R.id.ed_tanggal);
         dateFormatter = new SimpleDateFormat("dd MMM yyyy");
@@ -109,6 +111,18 @@ public class Nikahan extends Activity {
                 btn_text.setVisibility(View.GONE);
                 animationView.setVisibility(View.VISIBLE);
                 checkUser();
+            }
+        });
+
+        btn_back = findViewById(R.id.buttonback);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();*/
+                onBackPressed();
             }
         });
 

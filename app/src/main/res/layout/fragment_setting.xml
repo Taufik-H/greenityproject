@@ -149,7 +149,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/bagikanIcon"
-                    android:src="@drawable/bagikan"
+                    android:src="@drawable/privasi"
                     android:background="@drawable/round_night_mode"
                     android:padding="12dp"/>
                 <TextView
@@ -157,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_centerVertical="true"
-                    android:text="Bagikan Aplikasi"
+                    android:text="Privasi"
                     android:textColor="@color/blue"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/bagikanIcon"/>
@@ -179,7 +179,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/privasiIcon"
-                    android:src="@drawable/privasi"
+                    android:src="@drawable/bantuan"
                     android:background="@drawable/round_night_mode"
                     android:padding="12dp"/>
                 <TextView
@@ -187,13 +187,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_centerVertical="true"
-                    android:text="Privasi"
+                    android:text="Bantuan"
                     android:textColor="@color/blue"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/privasiIcon"/>
             </RelativeLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:background="@drawable/bg_setting"
             android:layout_height="wrap_content"
@@ -209,7 +210,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/bantuanIcon"
-                    android:src="@drawable/bantuan"
+                    android:src="@drawable/logout"
                     android:background="@drawable/round_night_mode"
                     android:padding="12dp"/>
                 <TextView
@@ -217,7 +218,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_centerVertical="true"
-                    android:text="Bantuan"
+                    android:text="Keluar akun"
                     android:textColor="@color/blue"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/bantuanIcon"/>

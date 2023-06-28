@@ -125,10 +125,11 @@ public class UlangTahun extends Activity {
         buttonback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+                /*FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
+                onBackPressed();
             }
         });
         getfoto.setOnClickListener(new View.OnClickListener() {
