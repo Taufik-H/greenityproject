@@ -31,40 +31,6 @@
             </com.google.android.gms.ads.AdView>
 
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/profile"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Supriadi"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:textColor="@color/blue"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="supriadi@gmail.com"
-                android:textColor="@color/lightSlate"
-                android:layout_gravity="center"
-                android:textSize="15dp"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="113dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/round_back_secondary_100"
-                android:paddingStart="20dp"
-                android:text="Edit Profile"
-                android:textSize="10dp"
-                android:textColor="@color/white"
-                android:paddingEnd="20dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:background="@drawable/bg_setting"
