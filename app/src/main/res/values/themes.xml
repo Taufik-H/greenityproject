@@ -20,4 +20,18 @@
     </style>
     <style name="Theme.Greetiny.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Greetiny.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    //light mode screen
+    <style name="Screen">
+        <item name="android:background">#FFF</item>
+    </style>
+    //background jika light on
+    <style name="Text">
+        <item name="android:textColor">#000</item>
+    </style>
+    //button jika light mode on
+    <style name="Button">
+        <item name="android:background"></item>
+    </style>
 </resources>

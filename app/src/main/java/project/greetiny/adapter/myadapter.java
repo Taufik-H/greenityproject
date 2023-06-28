@@ -57,23 +57,14 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
             holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(final View v) {
-                    final String[] action = {"Update", "Delete"};
+                    final String[] action = {"Delete"};
                     AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
-                    alert.setTitle("Apa yang akan anda pilih?");
+                    alert.setTitle("Delete Kartu Ini?");
                     alert.setItems(action, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int position) {
                             switch (position) {
                                 case 0:
-                                    Bundle bundle = new Bundle();
-                                    // Kirim data yang diperlukan ke UpdateActivity
-                                    bundle.putString("dataId", getRef(holder.getAdapterPosition()).getKey());
-                                    Intent intent = new Intent(v.getContext(), UpdateActivity.class);
-                                    intent.putExtras(bundle);
-                                    context.startActivity(intent);
-                                    break;
-
-                                case 1:
                                     AlertDialog.Builder alertt = new AlertDialog.Builder(v.getContext());
                                     alertt.setTitle("Apakah anda yakin akan menghapus Data ini?");
                                     alertt.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
