@@ -8,11 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,16 +21,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import project.greetiny.R;
-import project.greetiny.adapter.DataClass;
 import project.greetiny.adapter.model;
-import project.greetiny.adapter.myadapter;
+import project.greetiny.adapter.adapter;
 
 
 public class FragmentList extends Fragment {
 
     String subject;
     ShimmerFrameLayout shimmerFrameLayout;
-    myadapter adapter;
+    project.greetiny.adapter.adapter adapter;
     boolean isDataLoaded = false;
     FloatingActionButton deletebutton;
     String key = "";
@@ -70,7 +67,7 @@ public class FragmentList extends Fragment {
                     .setQuery(query, model.class)
                     .build();
 
-            adapter = new myadapter(options, currentUserUid);
+            adapter = new adapter(options, currentUserUid);
             recyclerView.setAdapter(adapter);
 
             // Listener untuk memeriksa apakah data telah dimuat

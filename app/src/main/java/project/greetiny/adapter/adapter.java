@@ -12,14 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.card.MaterialCardView;
 
 import project.greetiny.R;
 
 
-public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewholder> {
+public class adapter extends FirebaseRecyclerAdapter<model, adapter.myviewholder> {
     private String currentUserUid;
-    public myadapter(@NonNull FirebaseRecyclerOptions<model> options, String currentUserUid) {
+    public adapter(@NonNull FirebaseRecyclerOptions<model> options, String currentUserUid) {
         super(options);
         this.currentUserUid = currentUserUid;
     }
@@ -52,7 +51,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
         return new myviewholder(view);
     }
 
-    public class myviewholder extends RecyclerView.ViewHolder {
+    public class myviewhozlder extends RecyclerView.ViewHolder {
         TextView nametext, type,copylink;
 
         public myviewholder(@NonNull View itemView) {
