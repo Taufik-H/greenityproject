@@ -167,6 +167,8 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center_vertical"
                             android:hint="masukan password"
+                            android:autofillHints="Password"
+                            android:inputType="textPassword"
                             android:textColorHint="@color/lightSlate"
                             android:paddingHorizontal="20dp"
                             android:background="@color/transparent" />
@@ -195,6 +197,8 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center_vertical"
                             android:hint="masukan password"
+                            android:autofillHints="Password"
+                            android:inputType="textPassword"
                             android:textColorHint="@color/lightSlate"
                             android:paddingHorizontal="20dp"
                             android:background="@color/transparent" />
