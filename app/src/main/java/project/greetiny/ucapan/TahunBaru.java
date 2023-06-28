@@ -207,7 +207,7 @@ public class TahunBaru extends Activity {
                             tahunbaru.setUcapan(getUcapan);
                             tahunbaru.setGambar(uri.toString());
                             tahunbaru.setUserId(currentUserUid);
-                            tahunbaru.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
+                            tahunbaru.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
 
                             newCardRef.setValue(tahunbaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

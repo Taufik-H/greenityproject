@@ -231,7 +231,7 @@ public class UlangTahun extends Activity {
                             ultahBaru.setUcapan(getUcapan);
                             ultahBaru.setGambar(uri.toString());
                             ultahBaru.setUserId(currentUserUid);
-                            ultahBaru.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
+                            ultahBaru.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
 
 
 

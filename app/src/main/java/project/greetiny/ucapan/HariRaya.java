@@ -207,7 +207,7 @@ public class HariRaya extends Activity {
                             hariraya.setUcapan(getUcapan);
                             hariraya.setGambar(uri.toString());
                             hariraya.setUserId(currentUserUid);
-                            hariraya.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
+                            hariraya.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
 
 
                             newCardRef.setValue(hariraya).addOnCompleteListener(new OnCompleteListener<Void>() {

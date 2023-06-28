@@ -219,7 +219,7 @@ public class Kelulusan extends Activity {
                             barululus.setUcapan(getUcapan);
                             barululus.setGambar(uri.toString());
                             barululus.setUserId(currentUserUid);
-                            barululus.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
+                            barululus.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
                             databaseReference.push().setValue(barululus).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
