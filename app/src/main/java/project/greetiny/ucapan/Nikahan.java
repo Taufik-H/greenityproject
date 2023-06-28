@@ -212,7 +212,7 @@ public class Nikahan extends Activity {
                             barunikah.setUcapan(getUcapan);
                             barunikah.setGambar(uri.toString());
                             barunikah.setUserId(currentUserUid);
-                            barunikah.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
+                            barunikah.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
 
                             newCardRef.setValue(barunikah).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
