@@ -207,7 +207,7 @@ public class Valentine extends Activity {
                             valentinebaru.setUcapan(getUcapan);
                             valentinebaru.setGambar(uri.toString());
                             valentinebaru.setUserId(currentUserUid);
-                            valentinebaru.setWebsiteUrl("https://www.example.com/kartu/" + cardId);
+                            valentinebaru.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
 
                             newCardRef.setValue(valentinebaru).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:clickable="true"
     android:layout_marginHorizontal="5dp"
@@ -52,6 +53,7 @@
                 android:fontFamily="@font/poppinsreguler"/>
               <com.google.android.material.card.MaterialCardView
                   android:layout_width="100dp"
+                  android:id="@+id/copyLink"
                   android:layout_height="30dp"
                   android:clickable="true"
                   app:rippleColor="@color/lightSlate"
@@ -63,7 +65,7 @@
                   android:background="@color/teal_200"
                   android:layout_below="@id/name">
                   <TextView
-                        android:id="@+id/copyLink"
+
                       android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:gravity="center"
@@ -77,4 +79,5 @@
 
 
     </RelativeLayout>
+
 </com.google.android.material.card.MaterialCardView>

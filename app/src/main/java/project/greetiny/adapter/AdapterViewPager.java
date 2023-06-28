@@ -7,12 +7,17 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import java.util.ArrayList;
 
+import project.greetiny.fragment.FragmentList;
+
 public class    AdapterViewPager extends FragmentStateAdapter {
     ArrayList<Fragment> arr;
+    FragmentList context;
+
     public AdapterViewPager(@NonNull FragmentActivity fragmentActivity, ArrayList<Fragment> arr) {
         super(fragmentActivity);
         this.arr = arr;
     }
+
 
     @NonNull
     @Override
@@ -24,4 +29,6 @@ public class    AdapterViewPager extends FragmentStateAdapter {
     public int getItemCount() {
         return arr.size();
     }
+
+
 }
