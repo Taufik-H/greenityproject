@@ -50,8 +50,10 @@
                 android:text="Ulang Tahun"
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="30dp"
-                android:fontFamily="@font/poppinsreguler"/>
-              <com.google.android.material.card.MaterialCardView
+                android:fontFamily="@font/poppinsreguler" />
+
+
+            <com.google.android.material.card.MaterialCardView
                   android:layout_width="100dp"
                   android:id="@+id/copyLink"
                   android:layout_height="30dp"
