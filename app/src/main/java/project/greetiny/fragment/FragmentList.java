@@ -41,14 +41,13 @@ public class FragmentList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.recycleview); // Pastikan id sesuai dengan layout XML Anda
+        RecyclerView recyclerView = view.findViewById(R.id.recycleview);
         shimmerFrameLayout = view.findViewById(R.id.shimmer);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (currentUser != null) {
-            shimmerFrameLayout.setVisibility(View.VISIBLE);
-            shimmerFrameLayout.startShimmer();
+
             String currentUserUid = currentUser.getUid();
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("kartu");
             Query query = databaseReference.orderByChild("userId").equalTo(currentUserUid);
@@ -57,27 +56,15 @@ public class FragmentList extends Fragment {
                     .build();
 
             adapter = new myadapter(options, currentUserUid);
-
-            // Pindahkan kode adapter ke dalam kondisi isDataLoaded
-            if (isDataLoaded) {
-                adapter.startListening();
-                recyclerView.setAdapter(adapter);
-                recyclerView.setVisibility(View.VISIBLE);
-                shimmerFrameLayout.stopShimmer();
-                shimmerFrameLayout.setVisibility(View.GONE);
-            }
+            recyclerView.setAdapter(adapter);
 
             // Listener untuk memeriksa apakah data telah dimuat
             ValueEventListener valueEventListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-                        isDataLoaded = true;
-                        if (adapter != null) {
-                            adapter.startListening();
-                            recyclerView.setAdapter(adapter);
-                            recyclerView.setVisibility(View.VISIBLE);
-                        }
+                        adapter.startListening();
+                        recyclerView.setVisibility(View.VISIBLE);
                         shimmerFrameLayout.stopShimmer();
                         shimmerFrameLayout.setVisibility(View.GONE);
                     }
@@ -98,6 +85,7 @@ public class FragmentList extends Fragment {
         return view;
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -116,11 +104,9 @@ public class FragmentList extends Fragment {
 
     public void onBackPressed()
     {
-        shimmerFrameLayout.stopShimmer();
-        shimmerFrameLayout.setVisibility(View.GONE);
-        AppCompatActivity activity=(AppCompatActivity)getContext();
-        activity.getSupportFragmentManager().beginTransaction()
-                .replace(R.id.recycleview,new FragmentList()).addToBackStack(null).commit();
+
+        AppCompatActivity activity = (AppCompatActivity) getContext();
+        activity.getSupportFragmentManager().popBackStack();
 
     }
 }
