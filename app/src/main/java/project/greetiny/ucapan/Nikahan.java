@@ -88,8 +88,8 @@ public class Nikahan extends Activity {
         subjectB = findViewById(R.id.ed_subjectB);
         ucapan = findViewById(R.id.ed_ucapan);
 
-        btn_text = findViewById(R.id.buttonback);
 
+        btn_text.setVisibility(View.VISIBLE);
         //Date Picker
         tanggal = findViewById(R.id.ed_tanggal);
         dateFormatter = new SimpleDateFormat("dd MMM yyyy");
@@ -118,6 +118,7 @@ public class Nikahan extends Activity {
                 Simpan.setEnabled(false);
                 btn_text.setVisibility(View.GONE);
                 animationView.setVisibility(View.VISIBLE);
+
                 checkUser();
             }
         });
@@ -126,10 +127,7 @@ public class Nikahan extends Activity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-                finish();*/
+
                 onBackPressed();
             }
         });
@@ -193,8 +191,8 @@ public class Nikahan extends Activity {
         if(TextUtils.isEmpty(getSubject)|| TextUtils.isEmpty(getSubjectB)|| TextUtils.isEmpty(getTanggal)|| TextUtils.isEmpty(getUcapan)||uri == null){
             //Jika ada, maka akan menampilkan pesan singkat
 
-            btn_text.setVisibility(View.VISIBLE);
             animationView.setVisibility(View.GONE);
+            btn_text.setVisibility(View.VISIBLE);
             Toast.makeText(Nikahan.this, "Masih ada yang kosong!!", Toast.LENGTH_SHORT).show();
         }else{
             //Mendapatkan data dari ImageView sebagai bytes
@@ -248,14 +246,14 @@ public class Nikahan extends Activity {
 
                                         Toast.makeText(Nikahan.this, "Data Berhasil Tersimpan", Toast.LENGTH_SHORT).show();
                                         //progressBar.setVisibility(View.GONE);
-                                        btn_text.setVisibility(View.VISIBLE);
                                         animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Intent intent = new Intent(Nikahan.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
-                                        btn_text.setVisibility(View.VISIBLE);
                                         animationView.setVisibility(View.GONE);
+                                        btn_text.setVisibility(View.VISIBLE);
                                         Toast.makeText(Nikahan.this, "Data Gagal Tersimpan", Toast.LENGTH_SHORT).show();
                                     }
                                 }
