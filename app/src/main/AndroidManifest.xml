@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Greetiny"
         tools:targetApi="31">
         <activity
+            android:name=".PrivacyTermsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Update.UpdateUlangTahun"
             android:exported="false" />
         <activity
