@@ -8,7 +8,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import project.greetiny.adapter.AdapterViewPager;
 import project.greetiny.fragment.FragmentHome;
 import project.greetiny.fragment.FragmentList;
-import project.greetiny.fragment.fragmentSetting;
+import project.greetiny.fragment.FragmentSetting;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager2 pagerMain;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentArrayList.add(new FragmentHome());
         fragmentArrayList.add(new FragmentList());
-        fragmentArrayList.add(new fragmentSetting());
+        fragmentArrayList.add(new FragmentSetting());
 
         AdapterViewPager adapterViewPager = new AdapterViewPager(this, fragmentArrayList);
         pagerMain.setAdapter(adapterViewPager);

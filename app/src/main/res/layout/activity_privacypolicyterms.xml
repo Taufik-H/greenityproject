@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrivacyTermsActivity">
+
+    <RelativeLayout
+        android:id="@+id/privacypoli"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="20dp"
+
+        >
+
+        <Button
+            android:id="@+id/buttonback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"/>
+
+
+        <TextView
+            android:id="@+id/judul"
+            android:layout_below="@+id/buttonback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/privaci"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="Luminous Studio4 built the Greetiny app as a Free app. This SERVICE is provided by Luminous Studio4 at no cost and is intended for use as is.\n\nThis page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.\n\n If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.\n\n
+The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at Greetiny unless otherwise defined in this Privacy Policy.\n\n
+"
+            android:layout_below="@+id/judul">
+        </TextView>
+
+        <TextView
+            android:id="@+id/infoanduse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/privaci"
+            android:text="Information Collection and Use"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_infoanduse"
+            android:layout_below="@+id/infoanduse"
+            android:justificationMode="inter_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information, including but not limited to akun pengguna dan sandi pada akun. The information that I request will be retained on your device and is not collected by me in any way.\n\n
+The app does use third-party services that may collect information used to identify you.\n\n
+Link to the privacy policy of third-party service providers used by the app\n\n
+*   [Google Play Services](https://www.google.com/policies/privacy/)\n
+*   [AdMob](https://support.google.com/admob/answer/6128543?hl=en)\n
+*   [Google Analytics for Firebase](https://firebase.google.com/policies/analytics)\n
+*   [Firebase Crashlytics](https://firebase.google.com/support/privacy/)\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/logdata"
+            android:layout_below="@+id/text_infoanduse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Data"
+            android:textSize="20dp"
+            >
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_logdata"
+            android:layout_below="@+id/logdata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (“IP”) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/cookies"
+            android:layout_below="@+id/text_logdata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cookies"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_cookies"
+            android:layout_below="@+id/cookies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.\n\n
+This Service does not use these “cookies” explicitly. However, the app may use third-party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/ServiceProviders"
+            android:layout_below="@+id/text_cookies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Providers"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_ServiceProviders"
+            android:layout_below="@+id/ServiceProviders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="I may employ third-party companies and individuals due to the following reasons:\n\n
+*   To facilitate our Service;\n
+*   To provide the Service on our behalf;\n
+*   To perform Service-related services; or\n
+*   To assist us in analyzing how our Service is used.\n\n I want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/Security"
+            android:layout_below="@+id/text_ServiceProviders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Security"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_Security"
+            android:layout_below="@+id/Security"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/LinkstoOtherSites"
+            android:layout_below="@+id/text_Security"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Links to Other Sites"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_LinkstoOtherSites"
+            android:layout_below="@+id/LinkstoOtherSites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/ChildrensPrivacy"
+            android:layout_below="@+id/text_LinkstoOtherSites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Children’s Privacy"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_ChildrensPrivacy"
+            android:layout_below="@+id/ChildrensPrivacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13 years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do the necessary actions.\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/ChangestoThisPrivacyPolicy"
+            android:layout_below="@+id/text_ChildrensPrivacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Changes to This Privacy Policy"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_ChangestoThisPrivacyPolicy"
+            android:layout_below="@+id/ChangestoThisPrivacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.\n\n
+This policy is effective as of 2023-07-05\n">
+        </TextView>
+
+        <TextView
+            android:id="@+id/ContactUs"
+            android:layout_below="@+id/text_ChangestoThisPrivacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_ContactUs"
+            android:layout_below="@+id/ContactUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at luminousstudio4@gmail.com.\n\n
+This privacy policy page was created at [privacypolicytemplate.net](https://privacypolicytemplate.net) and modified/generated by [App Privacy Policy Generator](https://app-privacy-policy-generator.nisrulz.com/)\n\n
+">
+        </TextView>
+
+        <TextView
+            android:id="@+id/TermsConditions"
+            android:layout_below="@+id/text_ContactUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terms and Conditions"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_TermsConditions"
+            android:layout_below="@+id/TermsConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Luminous Studio4.\n\n
+Luminous Studio4 is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you’re paying for.\n\n
+The Greetiny app stores and processes personal data that you have provided to us, to provide my Service. It’s your responsibility to keep your phone and access to the app secure. We therefore recommend that you do not jailbreak or root your phone, which is the process of removing software restrictions and limitations imposed by the official operating system of your device. It could make your phone vulnerable to malware/viruses/malicious programs, compromise your phone’s security features and it could mean that the Greetiny app won’t work properly or at all.\n\n
+The app does use third-party services that declare their Terms and Conditions.\n\n
+Link to Terms and Conditions of third-party service providers used by the app\n\n
+
+*   [Google Play Services](https://policies.google.com/terms)\n
+*   [AdMob](https://developers.google.com/admob/terms)\n
+*   [Google Analytics for Firebase](https://firebase.google.com/terms/analytics)\n
+*   [Firebase Crashlytics](https://firebase.google.com/terms/crashlytics)\n\n
+
+You should be aware that there are certain things that Luminous Studio4 will not take responsibility for. Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi or provided by your mobile network provider, but Luminous Studio4 cannot take responsibility for the app not working at full functionality if you don’t have access to Wi-Fi, and you don’t have any of your data allowance left.\n\n
+If you’re using the app outside of an area with Wi-Fi, you should remember that the terms of the agreement with your mobile network provider will still apply. As a result, you may be charged by your mobile provider for the cost of data for the duration of the connection while accessing the app, or other third-party charges. In using the app, you’re accepting responsibility for any such charges, including roaming data charges if you use the app outside of your home territory (i.e. region or country) without turning off data roaming. If you are not the bill payer for the device on which you’re using the app, please be aware that we assume that you have received permission from the bill payer for using the app.\n\n
+Along the same lines, Luminous Studio4 cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged – if it runs out of battery and you can’t turn it on to avail the Service, Luminous Studio4 cannot accept responsibility.\n\n
+With respect to Luminous Studio4’s responsibility for your use of the app, when you’re using the app, it’s important to bear in mind that although we endeavor to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. Luminous Studio4 accepts no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.\n\n
+At some point, we may wish to update the app. The app is currently available on Android – the requirements for the system(and for any additional systems we decide to extend the availability of the app to) may change, and you’ll need to download the updates if you want to keep using the app. Luminous Studio4 does not promise that it will always update the app so that it is relevant to you and/or works with the Android version that you have installed on your device. However, you promise to always accept updates to the application when offered to you, We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.\n\n
+">
+        </TextView>
+
+        <TextView
+            android:id="@+id/ChangestoThisTermsandConditions"
+            android:layout_below="@+id/text_TermsConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Changes to This Terms and Conditions"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_ChangestoThisTermsandConditions"
+            android:layout_below="@+id/ChangestoThisTermsandConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="I may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Terms and Conditions on this page.\n\n
+These terms and conditions are effective as of 2023-07-05\n\n">
+        </TextView>
+
+        <TextView
+            android:id="@id/hubungKami"
+            android:layout_below="@id/text_ChangestoThisTermsandConditions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/text_hubungKami"
+            android:layout_below="@+id/hubungKami"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="If you have any questions or suggestions about my Terms and Conditions, do not hesitate to contact me at luminousstudio4@gmail.com.\n\n
+This Terms and Conditions page was generated by [App Privacy Policy Generator](https://app-privacy-policy-generator.nisrulz.com/)\n\n">
+        </TextView>
+
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

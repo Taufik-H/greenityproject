@@ -22,6 +22,7 @@ public class data_Kelulusan {
         this.userId = userId;
         this.websiteUrl = websiteUrl;
         this.type = type;
+        this.key = key;
     }
 
     public String getWebsiteUrl() {

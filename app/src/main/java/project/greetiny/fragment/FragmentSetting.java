@@ -3,7 +3,6 @@ package project.greetiny.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,21 +17,20 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 
+import project.greetiny.PrivacyTermsActivity;
 import project.greetiny.R;
 import project.greetiny.auth.SignInActivity;
-import project.greetiny.ucapan.HariRaya;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link fragmentSetting#newInstance} factory method to
+ * Use the {@link FragmentSetting#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragmentSetting extends Fragment {
+public class FragmentSetting extends Fragment {
     private AdView mAdView;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -43,10 +41,11 @@ public class fragmentSetting extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private FirebaseAuth mAuth;
-    private LinearLayout btnLogout;
 
-    public fragmentSetting() {
+    private FirebaseAuth mAuth;
+    private LinearLayout btnLogout, btnPrivacy;
+
+    public FragmentSetting() {
         // Required empty public constructor
     }
 
@@ -59,8 +58,8 @@ public class fragmentSetting extends Fragment {
      * @return A new instance of fragment FragmentSetting.
      */
     // TODO: Rename and change types and number of parameters
-    public static fragmentSetting newInstance(String param1, String param2) {
-        fragmentSetting fragment = new fragmentSetting();
+    public static FragmentSetting newInstance(String param1, String param2) {
+        FragmentSetting fragment = new FragmentSetting();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -109,8 +108,20 @@ public class fragmentSetting extends Fragment {
             }
 
         });
+
+        btnPrivacy = view.findViewById(R.id.butonPrivacy);
+        btnPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PrivacyTermsActivity.class);
+                startActivity(intent);
+            }
+        });
       
         return view;
+
+
+
 
 
     }
