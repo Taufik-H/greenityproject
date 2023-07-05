@@ -228,6 +228,8 @@ public class Kelulusan extends Activity {
                             DatabaseReference newCardRef = databaseReference.push();
                             String cardId = newCardRef.getKey();
 
+
+
                             data_Kelulusan barululus = new data_Kelulusan();
                             barululus.setUsername(currentUser.getDisplayName());
                             barululus.setType(getType);
@@ -237,7 +239,7 @@ public class Kelulusan extends Activity {
                             barululus.setGambar(uri.toString());
                             barululus.setUserId(currentUserUid);
                             barululus.setWebsiteUrl("https://greetinyweb.vercel.app/kartu/" + cardId);
-                            databaseReference.push().setValue(barululus).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            newCardRef.setValue(barululus).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
