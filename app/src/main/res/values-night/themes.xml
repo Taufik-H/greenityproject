@@ -14,4 +14,19 @@
         <item name="android:windowLightStatusBar">false</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    //Dark mode screen
+    <style name="Screen">
+        <item name="android:background">#252525</item>
+    </style>
+    //background jika Dark on
+    <style name="Text">
+        <item name="android:textColor">#FFF2F2</item>
+    </style>
+    //button jika Dark mode on
+    <style name="Button">
+        <item name="android:background">#8F8F8F</item>
+        <item name="android:textColor">#000000</item>
+    </style>
 </resources>

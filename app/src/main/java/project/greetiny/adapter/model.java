@@ -3,6 +3,7 @@ package project.greetiny.adapter;
 public class model {
 
     String subject;
+    String subjectA;
     String userId;
     String type;
     String tanggal;
@@ -14,8 +15,9 @@ public class model {
     public model() {
     }
 
-    public model(String subject, String userId, String type, String tanggal, String ucapan, String gambar, String websiteUrl, String key) {
+    public model(String subject, String subjectA, String userId, String type, String tanggal, String ucapan, String gambar, String websiteUrl, String key) {
         this.subject = subject;
+        this.subjectA = subjectA;
         this.userId = userId;
         this.type = type;
         this.tanggal = tanggal;
@@ -23,6 +25,14 @@ public class model {
         this.gambar = gambar;
         this.websiteUrl = websiteUrl;
         this.key = key;
+    }
+
+    public String getSubjectA() {
+        return subjectA;
+    }
+
+    public void setSubjectA(String subjectA) {
+        this.subjectA = subjectA;
     }
 
     public String getTanggal() {

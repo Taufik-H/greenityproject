@@ -32,6 +32,7 @@
     </style>
     //button jika light mode on
     <style name="Button">
-        <item name="android:background"></item>
+        <item name="android:background">@color/blue</item>
+        <item name="android:textColor">#FFF</item>
     </style>
 </resources>
