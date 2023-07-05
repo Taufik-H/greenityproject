@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Greetiny"
         tools:targetApi="31">
+        <activity
+            android:name=".Update.UpdateUlangTahun"
+            android:exported="false" />
+        <activity
+            android:name=".Update.UpdateTahunBaru"
+            android:exported="false" />
+        <activity
+            android:name=".Update.UpdateNikahan"
+            android:exported="false" />
+        <activity
+            android:name=".Update.UpdateValentine"
+            android:exported="false" />
+        <activity
+            android:name=".Update.UpdateHariRaya"
+            android:exported="false" />
+        <activity
+            android:name=".Update.UpdateKelulusan"
+            android:exported="false" />
         <activity
             android:name=".ucapan.HariRaya"
             android:exported="false" />
@@ -48,9 +68,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-4313236220734517~5707844713"/>
+            android:value="ca-app-pub-4313236220734517~5707844713" />
     </application>
 
 </manifest>

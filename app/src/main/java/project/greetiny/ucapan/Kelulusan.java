@@ -43,6 +43,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.UUID;
 
 import project.greetiny.MainActivity;
@@ -181,12 +182,14 @@ public class Kelulusan extends Activity {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
-                newDate.set(year,month,dayOfMonth);
+                newDate.set(year, month, dayOfMonth);
+                dateFormatter = new SimpleDateFormat("dd MMMM yyyy", new Locale("id", "ID"));
                 tanggal.setText(dateFormatter.format(newDate.getTime()));
             }
-        }, calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
+
 
     private void checkUser() {
 
