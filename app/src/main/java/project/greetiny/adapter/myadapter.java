@@ -96,8 +96,6 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
                                                                 intent.putExtra("image", model.getGambar());
                                                                 intent.putExtra("ucapan", model.getUcapan());
                                                                 v.getContext().startActivity(intent);
-
-
                                                                 break;
                                                             case "Hari Raya":
                                                                 intent = new Intent(v.getContext(), UpdateHariRaya.class);
@@ -126,6 +124,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
                                                                 // Pass the necessary data fields for the Pernikahan card
                                                                 intent.putExtra("cardId", cardId);
                                                                 intent.putExtra("subject", model.getSubject());
+                                                                intent.putExtra("subjectA", model.getSubjectA());
                                                                 intent.putExtra("tanggal", model.getTanggal());
                                                                 intent.putExtra("image", model.getGambar());
                                                                 intent.putExtra("ucapan", model.getUcapan());

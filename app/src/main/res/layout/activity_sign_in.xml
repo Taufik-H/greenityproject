@@ -209,45 +209,10 @@
                         </LinearLayout>
 
                         <!--                punya akun?-->
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/btnGoogleWrapper"
-                            android:layout_below="@id/loginCepat"
-                            android:layout_marginTop="10dp"
-                            android:clickable="true"
-                            android:layout_marginVertical="15dp"
-                            android:layout_width="match_parent"
-                            app:cardBackgroundColor="@color/black"
-                            app:cardCornerRadius="10dp"
-                            android:layout_height="60dp">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                android:gravity="center|center_vertical">
-
-                                <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:src="@drawable/google"
-                                    android:contentDescription="google.png" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Login with Google"
-                                    android:textAllCaps="false"
-                                    android:fontFamily="@font/poppinsreguler"
-                                    android:paddingStart="8dp"
-                                    android:textColor="@color/white"
-                                    android:textSize="15dp" />
-
-                            </LinearLayout>
-
-                        </com.google.android.material.card.MaterialCardView>
 
                         <RelativeLayout
-                            android:layout_below="@id/btnGoogleWrapper"
+                            android:layout_below="@id/loginCepat"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
