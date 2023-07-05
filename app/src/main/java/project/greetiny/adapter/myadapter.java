@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +23,19 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.card.MaterialCardView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import project.greetiny.R;
 
+import project.greetiny.Update.UpdateHariRaya;
+import project.greetiny.Update.UpdateKelulusan;
+import project.greetiny.Update.UpdateNikahan;
+import project.greetiny.Update.UpdateTahunBaru;
+import project.greetiny.Update.UpdateUlangTahun;
+import project.greetiny.Update.UpdateValentine;
 import project.greetiny.fragment.FragmentList;
 import project.greetiny.adapter.model;
 
@@ -45,6 +55,8 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
             holder.nametext.setText(model.getSubject());
             holder.type.setText(model.getType());
             String websiteUrl = model.getWebsiteUrl();
+            Log.d("MyAdapter", "Image URL: " + model.getGambar());
+
             holder.copylink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -57,7 +69,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
             holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(final View v) {
-                    final String[] action = {"Delete"};
+                    final String[] action = {"Update","Delete"};
                     AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
                     alert.setTitle("Delete Kartu Ini?");
                     alert.setItems(action, new DialogInterface.OnClickListener() {
@@ -65,9 +77,99 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
                         public void onClick(DialogInterface dialog, int position) {
                             switch (position) {
                                 case 0:
-                                    AlertDialog.Builder alertt = new AlertDialog.Builder(v.getContext());
-                                    alertt.setTitle("Apakah anda yakin akan menghapus Data ini?");
-                                    alertt.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                                    String cardId = getRef(holder.getAdapterPosition()).getKey();
+
+                                    FirebaseDatabase.getInstance().getReference("kartu").child(cardId).child("type")
+                                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    String cardType = dataSnapshot.getValue(String.class);
+                                                    if (cardType != null) {
+                                                        Intent intent;
+                                                        switch (cardType) {
+                                                            case "Ulang tahun":
+                                                                intent = new Intent(v.getContext(), UpdateUlangTahun.class);
+                                                                // Pass the necessary data fields for the Ulang Tahun card
+                                                                intent.putExtra("cardId", cardId);
+                                                                intent.putExtra("subject", model.getSubject());
+                                                                intent.putExtra("tanggal", model.getTanggal());
+                                                                intent.putExtra("image", model.getGambar());
+                                                                intent.putExtra("ucapan", model.getUcapan());
+                                                                v.getContext().startActivity(intent);
+
+
+                                                                break;
+                                                            case "Hari Raya":
+                                                                intent = new Intent(v.getContext(), UpdateHariRaya.class);
+                                                                // Pass the necessary data fields for the Hari Raya card
+                                                                intent.putExtra("cardId", cardId);
+                                                                intent.putExtra("subject", model.getSubject());
+                                                                intent.putExtra("tanggal", model.getTanggal());
+                                                                intent.putExtra("image", model.getGambar());
+                                                                intent.putExtra("ucapan", model.getUcapan());
+                                                                // Add more data fields specific to the Hari Raya card if needed
+                                                                v.getContext().startActivity(intent);
+                                                                break;
+                                                            case "Kelulusan":
+                                                                intent = new Intent(v.getContext(), UpdateKelulusan.class);
+                                                                // Pass the necessary data fields for the Kelulusan card
+                                                                intent.putExtra("cardId", cardId);
+                                                                intent.putExtra("subject", model.getSubject());
+                                                                intent.putExtra("tanggal", model.getTanggal());
+                                                                intent.putExtra("image", model.getGambar());
+                                                                intent.putExtra("ucapan", model.getUcapan());
+                                                                // Add more data fields specific to the Kelulusan card if needed
+                                                                v.getContext().startActivity(intent);
+                                                                break;
+                                                            case "Pernikahan":
+                                                                intent = new Intent(v.getContext(), UpdateNikahan.class);
+                                                                // Pass the necessary data fields for the Pernikahan card
+                                                                intent.putExtra("cardId", cardId);
+                                                                intent.putExtra("subject", model.getSubject());
+                                                                intent.putExtra("tanggal", model.getTanggal());
+                                                                intent.putExtra("image", model.getGambar());
+                                                                intent.putExtra("ucapan", model.getUcapan());
+                                                                // Add more data fields specific to the Pernikahan card if needed
+                                                                v.getContext().startActivity(intent);
+                                                                break;
+                                                            case "Tahun Baru":
+                                                                intent = new Intent(v.getContext(), UpdateTahunBaru.class);
+                                                                // Pass the necessary data fields for the Tahun Baru card
+                                                                intent.putExtra("cardId", cardId);
+                                                                intent.putExtra("subject", model.getSubject());
+                                                                intent.putExtra("tanggal", model.getTanggal());
+                                                                intent.putExtra("image", model.getGambar());
+                                                                intent.putExtra("ucapan", model.getUcapan());
+                                                                // Add more data fields specific to the Tahun Baru card if needed
+                                                                v.getContext().startActivity(intent);
+                                                                break;
+                                                            case "Valentine":
+                                                                intent = new Intent(v.getContext(), UpdateValentine.class);
+                                                                // Pass the necessary data fields for the Valentine card
+                                                                intent.putExtra("cardId", cardId);
+                                                                intent.putExtra("subject", model.getSubject());
+                                                                intent.putExtra("tanggal", model.getTanggal());
+                                                                intent.putExtra("image", model.getGambar());
+                                                                intent.putExtra("ucapan", model.getUcapan());
+                                                                // Add more data fields specific to the Valentine card if needed
+                                                                v.getContext().startActivity(intent);
+                                                                break;
+                                                            default:
+                                                                Toast.makeText(v.getContext(), "Pilih kartu ucapan dengan benar", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                    // Handle database error
+                                                }
+                                            });
+                                    break;
+                                case 1:
+                                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getContext());
+                                    alertDialogBuilder.setTitle("Apakah anda yakin akan menghapus Data ini?");
+                                    alertDialogBuilder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     // Hapus data dari Firebase berdasarkan kunci referensi yang disimpan di myviewholder
@@ -89,7 +191,7 @@ public class myadapter extends FirebaseRecyclerAdapter<model, myadapter.myviewho
                                                 }
                                             });
 
-                                    alertt.create().show();
+                                    alertDialogBuilder.create().show();
                                     break;
                             }
                         }
