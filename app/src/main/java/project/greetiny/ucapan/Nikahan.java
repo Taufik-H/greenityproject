@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class Nikahan extends Activity {
     private ProgressBar progressBar;
     private EditText subject, subjectB, ucapan;
     private Button tanggal, btn_back;
+    private Spinner sp_hariRaya;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;

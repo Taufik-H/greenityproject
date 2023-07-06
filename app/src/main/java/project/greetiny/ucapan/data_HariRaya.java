@@ -4,6 +4,7 @@ public class data_HariRaya {
     private String gambar;
     private String subject;
     private String tanggal;
+    private String hariRaya;
     private String ucapan;
 
     private String username;
@@ -17,6 +18,7 @@ public class data_HariRaya {
         this.gambar = gambar;
         this.subject = subject;
         this.tanggal = tanggal;
+        this.hariRaya = hariRaya;
         this.ucapan = ucapan;
         this.username = username;
         this.userId = userId;
@@ -54,6 +56,14 @@ public class data_HariRaya {
 
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
+    }
+
+    public String getHariRaya() {
+        return hariRaya;
+    }
+
+    public void setHariRaya(String hariRaya) {
+        this.hariRaya = hariRaya;
     }
 
     public String getUcapan() {

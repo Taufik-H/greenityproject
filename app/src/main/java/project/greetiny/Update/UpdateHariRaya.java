@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -33,6 +34,7 @@ import project.greetiny.fragment.FragmentList;
 
 public class UpdateHariRaya extends AppCompatActivity {
     private EditText updateKirimke, updateUcapan;
+    private Spinner updateHariRaya;
     private Button backButton, chooseDateButton;
     private ImageView imageContainer;
     private RelativeLayout updateButton;
@@ -44,6 +46,7 @@ public class UpdateHariRaya extends AppCompatActivity {
     private String cardId;
     private String subject;
     private String tanggal;
+    private String hariRaya;
     private String image;
     private String imageUrl;
     private String ucapan;
@@ -60,6 +63,7 @@ public class UpdateHariRaya extends AppCompatActivity {
         imageContainer = findViewById(R.id.imageContainer);
         updateKirimke = findViewById(R.id.update_subject);
         updateUcapan = findViewById(R.id.update_ucapan);
+        updateHariRaya = findViewById(R.id.update_hariRaya);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +96,7 @@ public class UpdateHariRaya extends AppCompatActivity {
         cardId = intent.getStringExtra("cardId");
         subject = intent.getStringExtra("subject");
         tanggal = intent.getStringExtra("tanggal");
+        hariRaya = intent.getStringExtra("hariRaya");
         image = intent.getStringExtra("image");
         ucapan = intent.getStringExtra("ucapan");
         imageUrl = intent.getStringExtra("image");
@@ -99,6 +104,7 @@ public class UpdateHariRaya extends AppCompatActivity {
         // Set the existing values to the EditText fields
         updateKirimke.setText(subject);
         updateUcapan.setText(ucapan);
+        updateHariRaya.setSelection(Integer.parseInt(hariRaya));
         chooseDateButton.setText(tanggal);
 
         if (image != null) {
@@ -155,6 +161,7 @@ public class UpdateHariRaya extends AppCompatActivity {
     private void updateCard() {
         String updatedSubject = updateKirimke.getText().toString().trim();
         String updatedUcapan = updateUcapan.getText().toString().trim();
+        String updatedHariRaya = updateHariRaya.getSelectedItem().toString();
         String updatedTanggal = chooseDateButton.getText().toString().trim();
 
         if (TextUtils.isEmpty(updatedSubject) || TextUtils.isEmpty(updatedUcapan) || TextUtils.isEmpty(updatedTanggal)) {
@@ -169,6 +176,7 @@ public class UpdateHariRaya extends AppCompatActivity {
         HashMap<String, Object> updates = new HashMap<>();
         updates.put("subject", updatedSubject);
         updates.put("tanggal", updatedTanggal);
+        updates.put("hariRaya", updatedHariRaya);
         updates.put("ucapan", updatedUcapan);
 
         // Update the card in the database
