@@ -6,7 +6,6 @@ public class data_HariRaya {
     private String tanggal;
     private String hariRaya;
     private String ucapan;
-
     private String username;
     private String userId;
     private String type;

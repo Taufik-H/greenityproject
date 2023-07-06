@@ -104,7 +104,8 @@ public class UpdateHariRaya extends AppCompatActivity {
         // Set the existing values to the EditText fields
         updateKirimke.setText(subject);
         updateUcapan.setText(ucapan);
-        updateHariRaya.setSelection(Integer.parseInt(hariRaya));
+        int position = 0;
+        updateHariRaya.setSelection(position);
         chooseDateButton.setText(tanggal);
 
         if (image != null) {
