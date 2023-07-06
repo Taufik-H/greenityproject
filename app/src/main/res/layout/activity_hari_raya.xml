@@ -113,19 +113,50 @@
                     android:background="@color/transparent"
                     android:color="@color/inactive" />
             </com.google.android.material.card.MaterialCardView>
+
             <TextView
-                android:id="@+id/textUcapan"
+                android:id="@+id/textHariRaya"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ucapan"
+                android:text="Hari Raya"
                 android:layout_marginBottom="5dp"
                 android:layout_below="@id/tanggal"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp" />
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/ucapan"
+                android:id="@+id/hariraya"
+                app:cardElevation="0dp"
+                android:layout_marginVertical="5dp"
+                android:layout_below="@id/textHariRaya"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                app:cardCornerRadius="10dp"
+                android:backgroundTint="@color/inactive">
+                <Spinner
+                    android:id="@+id/sp_hariraya"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:hint="pilih ucapan"
+                    android:textColorHint="@color/lightSlate"
+                    android:paddingHorizontal="20dp"
+                    android:background="@color/transparent"
+                    android:entries="@array/hariRaya"/>
+            </com.google.android.material.card.MaterialCardView>
 
+            <TextView
+                android:id="@+id/textUcapan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ucapan"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/hariraya"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ucapan"
                 app:cardElevation="0dp"
                 android:layout_marginVertical="5dp"
                 android:layout_below="@id/textUcapan"

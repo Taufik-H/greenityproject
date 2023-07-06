@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,11 +47,12 @@ public class HariRaya extends Activity {
     private ProgressBar progressBar;
     private EditText subject, object, ucapan;
     private Button tanggal, btn_back;
+    private Spinner sp_hariRaya;
     DatePickerDialog datePickerDialog;
     SimpleDateFormat dateFormatter;
     private ImageView ImageContainer;
     public Uri imageUrl,uri;
-    private String getSubject, getObject, getTanggal, getUcapan, getGambar, getType;
+    private String getSubject, getObject, getHariRaya, getTanggal, getUcapan, getGambar, getType;
     private StorageReference reference;
     DatabaseReference getReference;
     FirebaseStorage storage;
@@ -79,6 +81,9 @@ public class HariRaya extends Activity {
         //Input Data
         subject = findViewById(R.id.ed_subject);
         ucapan = findViewById(R.id.ed_ucapan);
+        sp_hariRaya = findViewById(R.id.sp_hariraya);
+
+
 
         //Date Picker
         tanggal = findViewById(R.id.ed_tanggal);
@@ -103,6 +108,7 @@ public class HariRaya extends Activity {
                 getType = "Hari Raya";
                 getSubject = subject.getText().toString();
                 getTanggal = tanggal.getText().toString();
+                getHariRaya = sp_hariRaya.getSelectedItem().toString();
                 getUcapan = ucapan.getText().toString();
                 Simpan.setEnabled(false);
                 btn_text.setVisibility(View.GONE);
@@ -132,6 +138,8 @@ public class HariRaya extends Activity {
 
 
     }
+
+
 
     private void getimage(){
         Intent imageIntentGallery = new Intent(Intent.ACTION_PICK,
@@ -219,6 +227,7 @@ public class HariRaya extends Activity {
                             hariraya.setType(getType);
                             hariraya.setSubject(getSubject);
                             hariraya.setTanggal(getTanggal);
+                            hariraya.setHariRaya(getHariRaya);
                             hariraya.setUcapan(getUcapan);
                             hariraya.setGambar(uri.toString());
                             hariraya.setUserId(currentUserUid);

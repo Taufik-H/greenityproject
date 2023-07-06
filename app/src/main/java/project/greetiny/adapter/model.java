@@ -7,6 +7,7 @@ public class model {
     String userId;
     String type;
     String tanggal;
+    String hariRaya;
     String ucapan;
     String gambar;
     String websiteUrl;
@@ -21,6 +22,7 @@ public class model {
         this.userId = userId;
         this.type = type;
         this.tanggal = tanggal;
+        this.hariRaya = hariRaya;
         this.ucapan = ucapan;
         this.gambar = gambar;
         this.websiteUrl = websiteUrl;
@@ -49,6 +51,14 @@ public class model {
 
     public void setUcapan(String ucapan) {
         this.ucapan = ucapan;
+    }
+
+    public String getHariRaya() {
+        return hariRaya;
+    }
+
+    public void setHariRaya(String hariRaya) {
+        this.hariRaya = hariRaya;
     }
 
     public String getGambar() {

@@ -26,4 +26,14 @@
     <string name="image_view_item_transform_content_description">Represents an image view in the
         item
     </string>
+
+    <string-array name="hariRaya">
+        <item>Pilih Hari Raya</item>
+        <item>Idul Fitri</item>
+        <item>Idul Adha</item>
+        <item>Waisak</item>
+        <item>Nyepi</item>
+        <item>Hari Kenaikan Yesus Kristus</item>
+        <item>Natal</item>
+    </string-array>
 </resources>
